@@ -1,4 +1,7 @@
 
+export interface BookModel {
+  title?:string;
+}
 export default async function Home() {
   const binId = "66f86374e41b4d34e439acf3";
   const url = 'https://api.jsonbin.io/v3/b/' + binId;
@@ -13,9 +16,9 @@ export default async function Home() {
   console.log(data)
   return (
   <div>
-    {data.record.books.map((book:any)=>{
+    {data.record.books.map((book:BookModel,index:number)=>{
       return (
-        <div>
+        <div key={index}>
           {book.title}
         </div>
       )
