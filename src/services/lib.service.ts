@@ -1,6 +1,6 @@
 
 import { BookModel } from "@/models/models";
-import data from "../mock/data.json";
+// import data from "../mock/data.json";
 import { URLS_CONSTANTS } from "@/utils/constants";
 
 export function setHeaders(): HeadersInit {
@@ -11,9 +11,9 @@ export function setHeaders(): HeadersInit {
   return headers;
 }
 
-export function getAllBooksMock(): BookModel[] {
-  return data.books;
-}
+// export function getAllBooksMock(): BookModel[] {
+//   return data.books;
+// }
 
 export async function getAllBooks() : Promise<BookModel[]> {
   const binId = process.env.POETRY_BIN_ID;
