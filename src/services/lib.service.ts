@@ -10,7 +10,6 @@ export function setHeaders(): HeadersInit {
   return headers;
 }
 
-//@ts-ignore
 export function getAllBooksMock(): BookModel[] {
   return data.books;
 }
