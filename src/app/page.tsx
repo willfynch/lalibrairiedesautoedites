@@ -5,7 +5,7 @@ import { BookModel } from "@/models/models";
 import { getAllBooks } from "@/services/lib.service";
 import { URLS_CONSTANTS } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -27,7 +27,8 @@ export default function Home() {
   }, [query]);
 
   return (
-    <div className="mb-10">
+    <Suspense>
+          <div className="mb-10">
       <div
         className="hero min-h-screen/50"
         style={{
@@ -134,5 +135,6 @@ export default function Home() {
         )}
       </div>
     </div>
+    </Suspense>
   );
 }
