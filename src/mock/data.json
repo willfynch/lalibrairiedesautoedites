@@ -1,0 +1,30 @@
+{
+    "books": [
+        {
+            "title": "My Novel",
+            "ISBN" : "123455677",
+            "author_name" : "NOVELLIST",
+            "author_family_name" : "Novel",
+            "author_pseudo" : "",
+            "year" : "2017",
+            "catch_phrase":"Un recueil de poésie illustré, avec une écriture simple et accessible.",
+            "link" : "https://amzn.to/3XxaEBi",
+            "tags" : ["science-fiction", "philosophie", "dark"],
+            "cover" : "https://m.media-amazon.com/images/I/61eXrQZbocL._SY522_.jpg",
+            "id": "1"
+        },
+        {
+            "title": "Le bruit lointain de l'eau",
+            "ISBN" : "123455677",
+            "author_name" : "Margaret",
+            "author_family_name" : "Tayler",
+            "author_pseudo" : "",
+            "year" : "2017",
+            "catch_phrase":"Un recueil de poésie illustré, avec une écriture simple et accessible.",
+            "link" : "https://amzn.to/3XxaEBi",
+            "tags" : ["science-fiction", "philosophie"],
+            "cover" : "https://m.media-amazon.com/images/I/61ZR2-o2aYL._SL1500_.jpg",
+            "id": "2"
+        }
+    ]
+}
