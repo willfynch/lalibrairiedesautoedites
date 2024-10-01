@@ -1,4 +1,5 @@
-import { BookModel } from "@/app/page";
+
+import { BookModel } from "@/models/models";
 import data from "../mock/data.json";
 import { URLS_CONSTANTS } from "@/utils/constants";
 
@@ -14,9 +15,12 @@ export function getAllBooksMock(): BookModel[] {
   return data.books;
 }
 
-export async function getAllPoetryBooks() : Promise<Response> {
+export async function getAllBooks() : Promise<BookModel[]> {
   const binId = process.env.POETRY_BIN_ID;
   const url = URLS_CONSTANTS.JSON_BIN_URL + binId;
 
-  return fetch(url, {headers: setHeaders()})
+  const data = await fetch(url, {headers: setHeaders()});
+  const jsonData = await data.json();
+  const books = jsonData.books ;
+  return books as Promise<BookModel[]>
 }
