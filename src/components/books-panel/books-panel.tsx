@@ -1,26 +1,51 @@
-'use client'
+"use client";
 import { BookModel } from "@/models/models";
 import { URLS_CONSTANTS } from "@/utils/constants";
 import BookCard from "../book-card/book-card";
 import EmptySvg from "../svgs/empty";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 function BooksPanel(props: { books: BookModel[] }) {
   const searchParams = useSearchParams();
   const query = searchParams.get("type");
+  const [displayedBooks, setDisplayedBooks] = useState<BookModel[]>(props.books);
+  const [filteredDisplayedBooks, setFilteredDisplayedBooks] =
+    useState<BookModel[]>([]);
 
   function filterBooksByType(type: string) {
-    const displayedBooks = props.books.filter((book) => book.type == type);
-    setDisplayedBooks(displayedBooks);
+    const booksFilteredByType = props.books.filter((book) => book.type === type);
+    setDisplayedBooks(booksFilteredByType);
+    setFilteredDisplayedBooks(booksFilteredByType);
   }
+
+  function resetFilteredBooks(){
+    setFilteredDisplayedBooks(displayedBooks);
+  }
+
+  function filterBooksBySearchedString(e: ChangeEvent<HTMLInputElement>) {
+    const searchedValue = e.target.value.toString().toLowerCase();
+    if(!searchedValue){
+        resetFilteredBooks();
+        return;
+    }
+    const futureDisplayedBooks = displayedBooks.filter((book: BookModel) =>
+      book.title.toLowerCase().includes(searchedValue)
+    || book.author_name.toLowerCase().includes(searchedValue)
+    || book.catch_phrase.toLowerCase().includes(searchedValue)
+    || book.tags.some(tag=>tag.toLowerCase().includes(searchedValue))
+    );
+    setFilteredDisplayedBooks(futureDisplayedBooks);
+  }
+
+  useEffect(()=>{
+    filterBooksByType('novel')
+  },[])
 
   useEffect(() => {
     if (!query) return;
     filterBooksByType(query);
   }, [query]);
-
-  const [displayedBooks, setDisplayedBooks] = useState(props.books);
 
   return (
     <div className="py-10 overflow-x-hidden">
@@ -70,7 +95,12 @@ function BooksPanel(props: { books: BookModel[] }) {
 
       <div className="md:px-10 py-4 m-4">
         <label className="input input-bordered flex items-center gap-2">
-          <input type="text" className="grow" placeholder="Search" />
+          <input
+            onChange={(e) => filterBooksBySearchedString(e)}
+            type="text"
+            className="grow"
+            placeholder="Chercher un livre"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -87,7 +117,7 @@ function BooksPanel(props: { books: BookModel[] }) {
       </div>
 
       <div className="px-4 md:px-10 h-content grid grid-cols-books gap-4 place-content-center">
-        {displayedBooks.map((book: BookModel, index: number) => {
+        {filteredDisplayedBooks.map((book: BookModel, index: number) => {
           return (
             <BookCard
               key={index}
@@ -107,7 +137,7 @@ function BooksPanel(props: { books: BookModel[] }) {
             />
           );
         })}
-        {displayedBooks.length === 0 && (
+        {filteredDisplayedBooks.length === 0 && (
           <div className="my-8 w-screen px-10 flex flex-col gap-4 justify-center items-center">
             <h2 className="z-30 text-primary-content text-3xl font-bold">
               Il n&apos;y a pas encore de livre ici !
@@ -134,4 +164,3 @@ function BooksPanel(props: { books: BookModel[] }) {
 }
 
 export default BooksPanel;
-

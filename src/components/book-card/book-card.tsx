@@ -3,8 +3,8 @@ import { BookModel } from "@/models/models";
 function BookCard(props: BookModel) {
   return (
     <div className="card bg-base-100  shadow-xl ">
-      <figure className="w-full h-60">
-        <img className="object-contain" src={props.cover} alt="Shoes" />
+      <figure className="w-full ">
+        <img className="object-contain h-80" src={props.cover} alt={'Couverture de ' + props.title} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{props.title}</h2>
