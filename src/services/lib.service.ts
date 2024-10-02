@@ -18,9 +18,8 @@ export function setHeaders(): HeadersInit {
 export async function getAllBooks() : Promise<BookModel[]> {
   const binId = process.env.POETRY_BIN_ID;
   const url = URLS_CONSTANTS.JSON_BIN_URL + binId;
-
   const data = await fetch(url, {headers: setHeaders()});
   const jsonData = await data.json();
-  const books = jsonData.books ;
+  const books = jsonData.record.books ;
   return books as Promise<BookModel[]>
 }
