@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
-
-
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +17,11 @@ export default function RootLayout({
   return (
     <html data-theme="pastel" lang="en">
       <body className={``}>
-        <Navbar/>
+        <Suspense>
+          <Navbar />
+        </Suspense>
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
