@@ -9,38 +9,47 @@ import { useSearchParams } from "next/navigation";
 function BooksPanel(props: { books: BookModel[] }) {
   const searchParams = useSearchParams();
   const query = searchParams.get("type");
-  const [displayedBooks, setDisplayedBooks] = useState<BookModel[]>(props.books);
-  const [filteredDisplayedBooks, setFilteredDisplayedBooks] =
-    useState<BookModel[]>([]);
+  const [displayedBooks, setDisplayedBooks] = useState<BookModel[]>(
+    props.books
+  );
+  const [filteredDisplayedBooks, setFilteredDisplayedBooks] = useState<
+    BookModel[]
+  >([]);
+  const [searchedValue, setSearchedValue] = useState("");
 
   function filterBooksByType(type: string) {
-    const booksFilteredByType = props.books.filter((book) => book.type === type);
+    const booksFilteredByType = props.books.filter(
+      (book) => book.type === type
+    );
     setDisplayedBooks(booksFilteredByType);
     setFilteredDisplayedBooks(booksFilteredByType);
   }
 
-  function resetFilteredBooks(){
+  function resetFilteredBooks() {
     setFilteredDisplayedBooks(displayedBooks);
   }
 
   function filterBooksBySearchedString(e: ChangeEvent<HTMLInputElement>) {
     const searchedValue = e.target.value.toString().toLowerCase();
-    if(!searchedValue){
-        resetFilteredBooks();
-        return;
+    if (!searchedValue) {
+      setSearchedValue("");
+      resetFilteredBooks();
+      return;
     }
-    const futureDisplayedBooks = displayedBooks.filter((book: BookModel) =>
-      book.title.toLowerCase().includes(searchedValue)
-    || book.author_name.toLowerCase().includes(searchedValue)
-    || book.catch_phrase.toLowerCase().includes(searchedValue)
-    || book.tags.some(tag=>tag.toLowerCase().includes(searchedValue))
+    setSearchedValue(searchedValue);
+    const futureDisplayedBooks = displayedBooks.filter(
+      (book: BookModel) =>
+        book.title.toLowerCase().includes(searchedValue) ||
+        book.author_name.toLowerCase().includes(searchedValue) ||
+        book.catch_phrase.toLowerCase().includes(searchedValue) ||
+        book.tags.some((tag) => tag.toLowerCase().includes(searchedValue))
     );
     setFilteredDisplayedBooks(futureDisplayedBooks);
   }
 
-  useEffect(()=>{
-    filterBooksByType('novel')
-  },[])
+  useEffect(() => {
+    filterBooksByType("novel");
+  }, []);
 
   useEffect(() => {
     if (!query) return;
@@ -99,7 +108,7 @@ function BooksPanel(props: { books: BookModel[] }) {
             onChange={(e) => filterBooksBySearchedString(e)}
             type="text"
             className="grow"
-            placeholder="Chercher un livre"
+            placeholder="Chercher un livre par titre, auteurice, thématique..."
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -124,8 +133,6 @@ function BooksPanel(props: { books: BookModel[] }) {
               title={book.title}
               ISBN={book.ISBN}
               author_name={book.author_name}
-              author_family_name={book.author_family_name}
-              author_pseudo={book.author_pseudo}
               year={book.year}
               link={book.link}
               tags={book.tags}
@@ -137,14 +144,26 @@ function BooksPanel(props: { books: BookModel[] }) {
             />
           );
         })}
-        {filteredDisplayedBooks.length === 0 && (
+        {filteredDisplayedBooks.length === 0 && searchedValue.length === 0 && (
+          <div className="my-8 w-screen px-10 flex flex-col gap-4 justify-center items-center">
+            <h2 className="z-30 text-primary-content text-3xl font-bold">
+              Chargement...
+            </h2>
+            <h3 className="z-30 text-primary-content text-md">
+              <span className="loading loading-bars loading-lg"></span>
+            </h3>
+            <div className="w-80 z-20 h-80 flex flex-cols justify-center items-center">
+              <EmptySvg />
+            </div>
+          </div>
+        )}
+        {filteredDisplayedBooks.length === 0 && searchedValue.length > 0 && (
           <div className="my-8 w-screen px-10 flex flex-col gap-4 justify-center items-center">
             <h2 className="z-30 text-primary-content text-3xl font-bold">
               Il n&apos;y a pas encore de livre ici !
             </h2>
             <h3 className="z-30 text-primary-content text-md">
-              Vite, vite, on en rajoute dans le formulaire (ou on le partage
-              avec ses potos) :
+            Vite, vite, on en rajoute dans le formulaire (ou on le partage avec ses potos) :
             </h3>
             <a
               target="_blank"

@@ -1,6 +1,8 @@
+'use client'
 import { NavItemModel } from "@/models/models";
 import { BOOK_TYPES, URLS_CONSTANTS } from "@/utils/constants";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { FaBookBookmark } from "react-icons/fa6";
 
 export const navItems: NavItemModel[] = [
@@ -20,9 +22,18 @@ export const navItems: NavItemModel[] = [
     label: "Jeunesse",
     type: BOOK_TYPES.YOUTH,
   },
+  {
+    label: "Érotisme",
+    type: BOOK_TYPES.EROTISM
+  }
 ];
 
+export const ACTIVE_CLASS = 'border-primary border-[1px]';
+
 function Navbar() {
+
+  const searchParams = useSearchParams();
+const query = searchParams.get("type");
   return (
     <header className="sticky top-0 z-50">
       <div className="navbar bg-base-100">
@@ -48,51 +59,27 @@ function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              {/* <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li> */}
               {navItems.map((item: NavItemModel, index: number) => {
                 return (
-                  <li key={index}>
-                    <a href={`?type=${item.type}`}>{item.label}</a>
+                  <li  key={index}>
+                    <a className={item.type===query ? ACTIVE_CLASS : ''} href={`?type=${item.type}`}>{item.label}</a>
                   </li>
                 );
               })}
             </ul>
           </div>
-          <Link className="btn btn-ghost text-md flex" href={"/"}>
+          <Link className="btn btn-ghost text-md flex" href={"/?type=novel"}>
             <FaBookBookmark />
             La librairie des auto-édité(e)s 🏴‍☠️
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            {/* <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li> */}
-            {}
+
             {navItems.map((item: NavItemModel, index: number) => {
               return (
-                <li key={index}>
-                  <a href={`?type=${item.type}`}>{item.label}</a>
+                <li  key={index}>
+                  <a className={item.type===query ? ACTIVE_CLASS : ''} href={`?type=${item.type}`}>{item.label}</a>
                 </li>
               );
             })}

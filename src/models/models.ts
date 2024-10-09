@@ -4,9 +4,7 @@ export interface BookModel {
     title: string;
     ISBN: string;
     author_name: string;
-    author_family_name: string;
-    author_pseudo: string;
-    year: string;
+    year: number;
     link: string;
     tags: string[];
     cover: string;

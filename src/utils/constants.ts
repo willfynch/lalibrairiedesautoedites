@@ -9,5 +9,11 @@ export enum BOOK_TYPES {
     POETRY = 'poetry',
     NOVEL = 'novel',
     ESSAY = 'essay',
-    YOUTH = 'youth'
+    YOUTH = 'youth',
+    EROTISM = 'erotism'
+}
+
+export enum METADATA_INFOS {
+    TITLE = 'La librairie des auto-édité(e)s 🏴‍☠️',
+    DESCRIPTION = 'Le seul portail du web pour chiner des livres auto-édités ou proposer les vôtres !',
 }

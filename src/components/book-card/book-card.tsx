@@ -1,4 +1,5 @@
 import { BookModel } from "@/models/models";
+import { TbExternalLink } from "react-icons/tb";
 
 function BookCard(props: BookModel) {
   return (
@@ -19,10 +20,10 @@ function BookCard(props: BookModel) {
         <div className="card-actions justify-end">
 
         <a target="_blank" href={props.social_link} className="btn">
-              Découvrir l&apos;auteurice
+              Découvrir l&apos;auteurice <TbExternalLink />
             </a>
             <a target="_blank" href={props.link} className="btn btn-primary">
-              Acheter
+              Acheter <TbExternalLink />
             </a>
         </div>
       </div>

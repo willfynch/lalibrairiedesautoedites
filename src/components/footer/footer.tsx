@@ -41,6 +41,9 @@ function Footer() {
 
         Réalisé avec ❤️‍🔥, NextJS et DaisyUI.
       </span>
+      <small>
+      En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+      </small>
     </footer>
   );
 }
