@@ -14,12 +14,15 @@ export interface BookModel {
     type: string;
 }
 
-export interface CategoryModel {
-    label: string;
-    name: string;
-  }
-
-  export interface NavItemModel {
+  export interface BookCategoryTabItemModel {
     label: string;
     type: string;
+    selected?:boolean;
   }
+
+  export interface NavBarItemModel {
+    label: string;
+    value: string;
+  }
+
+  

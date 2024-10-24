@@ -1,14 +1,16 @@
 "use client";
-import { BookModel } from "@/models/models";
-import { URLS_CONSTANTS } from "@/utils/constants";
+import { BookCategoryTabItemModel, BookModel } from "@/models/models";
+import {
+  ACTIVE_CLASS,
+  BOOK_CATEGORIES_TAB_ITEMS,
+  BOOK_TYPES,
+  URLS_CONSTANTS,
+} from "@/utils/constants";
 import BookCard from "../book-card/book-card";
 import EmptySvg from "../svgs/empty";
 import { ChangeEvent, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 
 function BooksPanel(props: { books: BookModel[] }) {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("type");
   const [displayedBooks, setDisplayedBooks] = useState<BookModel[]>(
     props.books
   );
@@ -16,6 +18,9 @@ function BooksPanel(props: { books: BookModel[] }) {
     BookModel[]
   >([]);
   const [searchedValue, setSearchedValue] = useState("");
+  const [tabItems, setTabItems] = useState<BookCategoryTabItemModel[]>(
+    BOOK_CATEGORIES_TAB_ITEMS
+  );
 
   function filterBooksByType(type: string) {
     const booksFilteredByType = props.books.filter(
@@ -47,17 +52,20 @@ function BooksPanel(props: { books: BookModel[] }) {
     setFilteredDisplayedBooks(futureDisplayedBooks);
   }
 
+  function selectBookCategory(index: number, item: BookCategoryTabItemModel) {
+    let tabItems = BOOK_CATEGORIES_TAB_ITEMS;
+    tabItems.forEach((tabItem) => (tabItem.selected = false));
+    tabItems[index].selected = true;
+    setTabItems(Array.from(tabItems));
+    filterBooksByType(item.type);
+  }
+
   useEffect(() => {
-    filterBooksByType("novel");
+    filterBooksByType(BOOK_TYPES.NOVEL);
   }, []);
 
-  useEffect(() => {
-    if (!query) return;
-    filterBooksByType(query);
-  }, [query]);
-
   return (
-    <div className="py-10 overflow-x-hidden">
+    <div className="relative py-10 overflow-x-hidden">
       <div
         className="hero min-h-screen/50"
         style={{
@@ -102,7 +110,28 @@ function BooksPanel(props: { books: BookModel[] }) {
         </div>
       </div>
 
-      <div className="md:px-10 py-4 m-4">
+      <div className="sticky top-0 mt-10 w-full flex justify-center">
+        <ul
+          role="navigation"
+          className=" menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box"
+        >
+          {BOOK_CATEGORIES_TAB_ITEMS.map((item, index) => {
+            return (
+              <li>
+                <a
+                  role="button"
+                  className={item.selected ? ACTIVE_CLASS : ""}
+                  onClick={(e) => selectBookCategory(index, item)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div className="sticky top-0 md:px-10 py-4 m-4">
         <label className="input input-bordered flex items-center gap-2">
           <input
             onChange={(e) => filterBooksBySearchedString(e)}
@@ -125,7 +154,7 @@ function BooksPanel(props: { books: BookModel[] }) {
         </label>
       </div>
 
-      <div className="px-4 md:px-10 h-content grid grid-cols-books gap-4 place-content-center">
+      <div className="overflow-scroll px-4 md:px-10 h-content grid grid-cols-books gap-4 place-content-center">
         {filteredDisplayedBooks.map((book: BookModel, index: number) => {
           return (
             <BookCard
@@ -163,7 +192,8 @@ function BooksPanel(props: { books: BookModel[] }) {
               Il n&apos;y a pas encore de livre ici !
             </h2>
             <h3 className="z-30 text-primary-content text-md">
-            Vite, vite, on en rajoute dans le formulaire (ou on le partage avec ses potos) :
+              Vite, vite, on en rajoute dans le formulaire (ou on le partage
+              avec ses potos) :
             </h3>
             <a
               target="_blank"
