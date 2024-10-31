@@ -1,14 +1,20 @@
 "use client";
-import { BookModel } from "@/models/models";
-import { URLS_CONSTANTS } from "@/utils/constants";
+import {
+  BookCategoryTabItemModel,
+  BookModel,
+} from "@/models/models";
+import {
+  ACTIVE_CLASS,
+  BOOK_CATEGORIES_TAB_ITEMS,
+  BOOK_TYPES,
+  URLS_CONSTANTS,
+} from "@/utils/constants";
 import BookCard from "../book-card/book-card";
 import EmptySvg from "../svgs/empty";
 import { ChangeEvent, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import useScrollPosition from "@/hooks/useScrollPosition";
 
 function BooksPanel(props: { books: BookModel[] }) {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("type");
   const [displayedBooks, setDisplayedBooks] = useState<BookModel[]>(
     props.books
   );
@@ -16,6 +22,10 @@ function BooksPanel(props: { books: BookModel[] }) {
     BookModel[]
   >([]);
   const [searchedValue, setSearchedValue] = useState("");
+  const [tabItems, setTabItems] = useState<BookCategoryTabItemModel[]>(
+    BOOK_CATEGORIES_TAB_ITEMS
+  );
+  const { scrollY, scrollDirection } = useScrollPosition();
 
   function filterBooksByType(type: string) {
     const booksFilteredByType = props.books.filter(
@@ -47,17 +57,20 @@ function BooksPanel(props: { books: BookModel[] }) {
     setFilteredDisplayedBooks(futureDisplayedBooks);
   }
 
+  function selectBookCategory(index: number, item: BookCategoryTabItemModel) {
+    const tabItems = BOOK_CATEGORIES_TAB_ITEMS;
+    tabItems.forEach((tabItem) => (tabItem.selected = false));
+    tabItems[index].selected = true;
+    setTabItems(Array.from(tabItems));
+    filterBooksByType(item.type);
+  }
+
   useEffect(() => {
-    filterBooksByType("novel");
+    filterBooksByType(BOOK_TYPES.NOVEL);
   }, []);
 
-  useEffect(() => {
-    if (!query) return;
-    filterBooksByType(query);
-  }, [query]);
-
   return (
-    <div className="py-10 overflow-x-hidden">
+    <div className="relative py-10">
       <div
         className="hero min-h-screen/50"
         style={{
@@ -102,30 +115,99 @@ function BooksPanel(props: { books: BookModel[] }) {
         </div>
       </div>
 
-      <div className="md:px-10 py-4 m-4">
-        <label className="input input-bordered flex items-center gap-2">
-          <input
-            onChange={(e) => filterBooksBySearchedString(e)}
-            type="text"
-            className="grow"
-            placeholder="Chercher un livre par titre, auteurice, thématique..."
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="h-4 w-4 opacity-70"
+      <div
+        className="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-40 bg-primary/80"
+        style={{
+          transition: "linear .5s all",
+          transform:
+            scrollDirection === "down" && scrollY > 520
+              ? "translateY(-1000%)"
+              : "translateY(0)",
+        }}
+      >
+        <div className="my-2 flex justify-center">
+          <ul
+            role="navigation"
+            className=" menu hidden lg:flex lg:menu-horizontal bg-base-200 rounded-box"
           >
-            <path
-              fillRule="evenodd"
-              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-              clipRule="evenodd"
+            {tabItems.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a
+                    role="button"
+                    className={item.selected ? ACTIVE_CLASS : ""}
+                    onClick={() => selectBookCategory(index, item)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className=" btn lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              {tabItems.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <a
+                      role="button"
+                      className={item.selected ? ACTIVE_CLASS : ""}
+                      onClick={() => selectBookCategory(index, item)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex-grow lg:px-10 my-2">
+          <label className="input input-bordered flex items-center gap-2">
+            <input
+              onChange={(e) => filterBooksBySearchedString(e)}
+              type="text"
+              className="grow"
+              placeholder="Chercher un livre par titre, auteurice, thématique..."
             />
-          </svg>
-        </label>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              className="h-4 w-4 opacity-70"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </label>
+        </div>
       </div>
 
-      <div className="px-4 md:px-10 h-content grid grid-cols-books gap-4 place-content-center">
+      <div className="px-4 md:px-10 mt-10 h-content grid grid-cols-books gap-4 place-content-center">
         {filteredDisplayedBooks.map((book: BookModel, index: number) => {
           return (
             <BookCard
@@ -163,7 +245,8 @@ function BooksPanel(props: { books: BookModel[] }) {
               Il n&apos;y a pas encore de livre ici !
             </h2>
             <h3 className="z-30 text-primary-content text-md">
-            Vite, vite, on en rajoute dans le formulaire (ou on le partage avec ses potos) :
+              Vite, vite, on en rajoute dans le formulaire (ou on le partage
+              avec ses potos) :
             </h3>
             <a
               target="_blank"
