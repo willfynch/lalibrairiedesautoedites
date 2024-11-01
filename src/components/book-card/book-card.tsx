@@ -3,7 +3,7 @@ import { TbExternalLink } from "react-icons/tb";
 
 function BookCard(props: BookModel) {
   return (
-    <div className="card bg-base-100  shadow-xl ">
+    <div className="card bg-base-100 shadow-xl ">
       <figure className="w-full ">
         <img className="object-contain h-80" src={props.cover} alt={'Couverture de ' + props.title} />
       </figure>
