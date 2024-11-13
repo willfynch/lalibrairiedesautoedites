@@ -1,4 +1,3 @@
-
 import { Fragment } from "react";
 import { getAllBlogs, getOneBlogArticle } from "@/services/blog.service";
 import { BlogArticleModel } from "@/models/models";
@@ -17,20 +16,17 @@ import BlogArticleContainer from "@/components/blog-article-container/blog-artic
 // }
 
 export function generateStaticParams() {
-   console.log(getAllBlogs().map(blog => ({ slug: blog.slug })))
-   return getAllBlogs().map(blog => ({ slug: blog.slug }))
+  console.log(getAllBlogs().map((blog) => ({ slug: blog.slug })));
+  return getAllBlogs().map((blog) => ({ slug: blog.slug }));
 }
 
+export default async function Article({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const article: BlogArticleModel | undefined = getOneBlogArticle(slug);
 
-export default async function Article({ params }: { params: { slug: string } }) {
-
-    const { slug } = params;
-    const article: BlogArticleModel | undefined = getOneBlogArticle(slug)
-
-    return (
-        <Fragment>
-            <BlogArticleContainer blogArticle={article} slug={slug} />
-        </Fragment>
-
-    )
+  return <BlogArticleContainer blogArticle={article} slug={slug} />;
 }

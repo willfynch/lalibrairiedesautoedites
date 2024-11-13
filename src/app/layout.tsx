@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html data-theme="pastel" lang="en">
+    <html data-theme="me" lang="en">
       <body className={``}>
         <Suspense>
           <Navbar />

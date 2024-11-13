@@ -17,7 +17,7 @@ function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 shadow-md">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -78,17 +78,17 @@ function Navbar() {
         </div>
         <div className="navbar-end hidden md:flex">
           <div
-            className="tooltip tooltip-primary tooltip-bottom"
+            className="tooltip tooltip-primary tooltip-bottom before:text-neutral"
             data-tip="Ouvrir le formulaire"
           >
-            <a
+            <Link
               role="link"
               target="_blank"
               href={URLS_CONSTANTS.BOOK_SUBMISSION_FORM}
-              className="btn btn-primary "
+              className="btn btn-primary text-neutral"
             >
               Soumettre mon livre
-            </a>
+            </Link>
           </div>
         </div>
       </div>

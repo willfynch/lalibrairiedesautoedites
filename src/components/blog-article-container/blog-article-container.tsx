@@ -13,14 +13,12 @@ export interface BlogArticleContainerProps {
   slug: string;
 }
 export default function OneWritingContainer(props: BlogArticleContainerProps) {
-
   const scrollPercentage = useScrollPercentage();
 
-
   return (
-    <div className="relative">
-            <progress
-        className="h-[4px] top-[65px] -mb-[5px] z-40 sticky progress w-full"
+    <div className="-mt-6">
+      <progress
+        className="h-[4px] top-[65px] -mb-[5px] z-50 sticky progress-[rgb(111,112,23)] progress w-full"
         value={scrollPercentage}
         max="100"
       ></progress>
@@ -40,19 +38,25 @@ export default function OneWritingContainer(props: BlogArticleContainerProps) {
         <div className="flex  flex-col  justify-center items-center gap-4 text-center text-base-200  absolute z-60 top-1/2 left-1/2 text-my-white -translate-y-1/2 -translate-x-1/2 z-30 text-center">
           <h1 className="text-2xl  font-bold">{props.blogArticle?.title}</h1>
           <span className="text-center text-base-200">
-            <span className="flex justify-center gap-2 items-center text-sm">
-              {formatDate(props.blogArticle?.date ?? "")} -{" "}
-              <div className="avatar">
-                <div className="w-6 rounded-full">
-                  <img alt="Photo de l'auteur ou de l'autrice" src={props.blogArticle?.author.author_pic as string} />
+            <span className="flex flex-col md:flex-row justify-center gap-2 items-center text-sm">
+              
+
+              <div className="flex justify-center gap-2 items-center text-sm">
+                <div className="avatar">
+                  <div className="w-6 rounded-full">
+                    <img
+                      alt="Photo de l'auteur ou de l'autrice"
+                      src={props.blogArticle?.author.author_pic as string}
+                    />
+                  </div>
                 </div>
+                {props.blogArticle?.author.author_name}
               </div>
-              {props.blogArticle?.author.author_name}
+              <span className="hidden md:block">•</span>
+              <span>{formatDate(props.blogArticle?.date ?? "")}</span>
             </span>
           </span>
-          <div className="badge">
-            {props.blogArticle?.category}
-          </div>
+          <div className="badge">{props.blogArticle?.category}</div>
         </div>
 
         <div className="backdrop-blur-md z-20 bg-[rgba(0,0,0,.5)] absolute top-0 left-0  h-screen w-screen"></div>
@@ -67,7 +71,6 @@ export default function OneWritingContainer(props: BlogArticleContainerProps) {
           alt={"Photo de couverture de " + props.blogArticle?.title}
         ></Image>
       </div>
-
 
       <Suspense>
         {/* <div className="flex gap-2 justify-center text-white my-10">
@@ -86,13 +89,15 @@ export default function OneWritingContainer(props: BlogArticleContainerProps) {
           )}
 
           <div className="flex justify-center w-full">
-            <div className="card bg-base-100 shadow-xl w-full">
+            <div className="card bg-white shadow-xl w-full">
               <div className="card-body">
                 <h2 className="card-title">
                   <div className="avatar">
                     <div className="m-0 p-0 w-14 rounded-full">
                       <img
-                      alt={'Photo de ' + props.blogArticle?.author.author_name}
+                        alt={
+                          "Photo de " + props.blogArticle?.author.author_name
+                        }
                         className="m-0"
                         src={props.blogArticle?.author.author_pic as string}
                       />
@@ -107,11 +112,13 @@ export default function OneWritingContainer(props: BlogArticleContainerProps) {
                     </span>
                   </div>
                 </h2>
-                <p className="text-justify">{props.blogArticle?.author.author_description}</p>
+                <p className="text-justify">
+                  {props.blogArticle?.author.author_description}
+                </p>
                 <div className="card-actions justify-start">
                   <Link
                     target="_blank"
-                    className="btn btn-primary no-underline"
+                    className="btn no-underline"
                     href={props.blogArticle?.author.author_link as string}
                   >
                     En savoir plus sur moi <TbExternalLink />{" "}
