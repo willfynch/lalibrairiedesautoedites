@@ -3,7 +3,7 @@ import { TbExternalLink } from "react-icons/tb";
 
 function BookCard(props: BookModel) {
   return (
-    <div className="card bg-base-100 shadow-xl ">
+    <div className="card bg-white shadow-xl ">
       <figure className="w-full ">
         <img className="object-contain h-80" src={props.cover} alt={'Couverture de ' + props.title} />
       </figure>
@@ -22,7 +22,7 @@ function BookCard(props: BookModel) {
         <a target="_blank" href={props.social_link} className="btn">
               Découvrir l&apos;auteurice <TbExternalLink />
             </a>
-            <a target="_blank" href={props.link} className="btn btn-primary">
+            <a target="_blank" href={props.link} className="btn btn-primary text-neutral">
               Acheter <TbExternalLink />
             </a>
         </div>

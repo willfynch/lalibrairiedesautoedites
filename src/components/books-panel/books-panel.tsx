@@ -13,6 +13,9 @@ import BookCard from "../book-card/book-card";
 import EmptySvg from "../svgs/empty";
 import { ChangeEvent, useEffect, useState } from "react";
 import useScrollPosition from "@/hooks/useScrollPosition";
+import UpWaves from "../svgs/UpWaves";
+import Link from "next/link";
+import style from './books-panel.module.scss';
 
 function BooksPanel(props: { books: BookModel[] }) {
   const [displayedBooks, setDisplayedBooks] = useState<BookModel[]>(
@@ -70,18 +73,18 @@ function BooksPanel(props: { books: BookModel[] }) {
   }, []);
 
   return (
-    <div className="relative py-10">
+    <div className="relative ">
       <div
-        className="hero min-h-screen/50"
+        className="hero h-96 relative"
         style={{
           backgroundImage:
             "url(https://images.pexels.com/photos/877971/pexels-photo-877971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
         }}
       >
-        <div className="hero-overlay bg-opacity-90"></div>
-        <div className="hero-content text-neutral-content text-center">
+        <div className="hero-overlay bg-black bg-opacity-70"></div>
+        <div className="hero-content  text-center">
           <div className="">
-            <h1 className="mb-5 text-4xl font-bold text-base-100">
+            <h1 className={"mb-5 text-4xl font-bold text-base-100" + " " + style.title}>
               La librairie des auto-édité(e)s{" "}
             </h1>
             <p className="mb-5 text-base-100">
@@ -100,23 +103,25 @@ function BooksPanel(props: { books: BookModel[] }) {
               </small>
             </p>
             <div
-              className="tooltip tooltip-primary tooltip-bottom"
+              className=" tooltip  tooltip-primary tooltip-top before:text-neutral"
               data-tip="Ouvrir le formulaire"
             >
-              <a
+              <Link
                 target="_blank"
                 href={URLS_CONSTANTS.BOOK_SUBMISSION_FORM}
-                className="btn btn-primary"
+                className="btn btn-base-100"
               >
                 Soumettre mon livre
-              </a>
+              </Link>
             </div>
           </div>
         </div>
+        <div className="bottom-0 absolute"><UpWaves/></div>
       </div>
 
+
       <div
-        className="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-40 bg-primary/80"
+        className="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-30 bg-base-100 shadow-md"
         style={{
           transition: "linear .5s all",
           transform:
@@ -195,7 +200,7 @@ function BooksPanel(props: { books: BookModel[] }) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              className="h-4 w-4 opacity-70"
+              className="h-4 w-4 opacity-90"
             >
               <path
                 fillRule="evenodd"
@@ -207,7 +212,7 @@ function BooksPanel(props: { books: BookModel[] }) {
         </div>
       </div>
 
-      <div className="px-4 md:px-10 mt-10 h-content grid grid-cols-books gap-4 place-content-center">
+      <div className="py-10 px-4 md:px-10 mt-10 h-content grid grid-cols-books gap-4 place-content-center">
         {filteredDisplayedBooks.map((book: BookModel, index: number) => {
           return (
             <BookCard
@@ -248,13 +253,13 @@ function BooksPanel(props: { books: BookModel[] }) {
               Vite, vite, on en rajoute dans le formulaire (ou on le partage
               avec ses potos) :
             </h3>
-            <a
+            <Link
               target="_blank"
               href={URLS_CONSTANTS.BOOK_SUBMISSION_FORM}
-              className="btn btn-primary z-30"
+              className="btn btn-primary text-neutral z-30"
             >
               Soumettre mon livre
-            </a>
+            </Link>
             <div className="w-80 z-20 h-80 flex flex-cols justify-center items-center">
               <EmptySvg />
             </div>

@@ -9,7 +9,7 @@ export default async function Blog() {
 
   return (
     <div className="my-10">
-      <div className=" flex flex-col items-center my-6 ">
+      <div className=" flex flex-col items-center mt-6 mb-14 ">
         <div className="prose flex flex-col items-center max-w-[800px] px-4 lg:px-0">
           <h1>Le blog </h1>
           <p>
@@ -35,15 +35,16 @@ export default async function Blog() {
               @du_cafe_et_des_rimes
             </a>
           </p>
-          <Link
+
+        </div>
+        <Link
             target="_blank"
-            className="btn btn-primary no-underline"
+            className="btn btn-primary text-neutral "
             href={"https://tally.so/r/3yq8Ed"}
           >
             Soumettre un article{" "}
             <TbExternalLink/>
           </Link>
-        </div>
       </div>
       <Suspense>
         <BlogPanel articles={articles} />
