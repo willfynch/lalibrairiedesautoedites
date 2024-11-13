@@ -20,12 +20,12 @@ export default function OneWritingContainer(props: BlogArticleContainerProps) {
   return (
     <div className="relative">
             <progress
-        className="h-[4px] top-[65px] -mb-[5px] z-50 sticky progress w-full"
+        className="h-[4px] top-[65px] -mb-[5px] z-40 sticky progress w-full"
         value={scrollPercentage}
         max="100"
       ></progress>
       <div className={"relative h-[300px] w-screen overflow-hidden"}>
-        <div className="breadcrumbs text-sm absolute top-4 left-10 z-50 text-base-200">
+        <div className="breadcrumbs text-sm absolute top-4 left-10 z-40 text-base-200">
           <ul>
             <li>
               <Link href={"/blog"}>Blog</Link>

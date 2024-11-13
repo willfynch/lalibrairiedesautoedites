@@ -10,6 +10,12 @@ export const ACTIVE_CLASS = "border-primary border-[1px]";
 function Navbar() {
   const path = usePathname();
 
+  function isPathActive(item:NavBarItemModel): boolean {
+    if(path==='/' && item.value === '') return true;
+    if(path.split('/')[1] === item.value) return true;
+    return false;
+  }
+
   return (
     <header className="sticky top-0 z-50">
       <div className="navbar bg-base-100">
@@ -33,13 +39,13 @@ function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow"
             >
               {NAVBAR_ITEMS.map((item: NavBarItemModel, index: number) => {
                 return (
                   <li key={index}>
                     <a
-                      className={path === "/" + item.value ? ACTIVE_CLASS : ""}
+                      className={isPathActive(item) ? ACTIVE_CLASS : ""}
                       href={`/${item.value}`}
                     >
                       {item.label}
@@ -60,10 +66,10 @@ function Navbar() {
               return (
                 <li key={index}>
                   <a
-                    className={path === "/" + item.value ? ACTIVE_CLASS : ""}
+                    className={isPathActive(item) ? ACTIVE_CLASS : ""}
                     href={`/${item.value}`}
                   >
-                    {item.label}
+                   {item.label}
                   </a>
                 </li>
               );
