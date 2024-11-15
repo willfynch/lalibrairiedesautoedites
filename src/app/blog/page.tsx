@@ -21,7 +21,7 @@ export default async function Blog() {
           <p className="text-justify">
             C&apos;est aussi un <strong>espace participatif</strong>. Vous
             aussi, <strong>vous pouvez avoir votre article dans cette section</strong>. Pour
-            cela, rien de plus simple, cliquez sur le bouton ci-dessous et remplissez le
+            cela, rien de plus simple, <strong>cliquez sur le bouton ci-dessous</strong> et remplissez le
             formulaire. Si vous avez des questions ou des remarques,
             contactez-moi via l&apos;adresse{" "}
             <a href="mailto:ducafeetdesrimes@proton.me">
