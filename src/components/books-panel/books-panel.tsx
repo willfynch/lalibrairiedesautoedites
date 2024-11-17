@@ -84,7 +84,7 @@ function BooksPanel(props: { books: BookModel[] }) {
         <div className="hero-overlay bg-black bg-opacity-70"></div>
         <div className="hero-content  text-center">
           <div className="">
-            <h1 className={"mb-5 text-4xl font-bold text-base-100" + " " + style.title}>
+            <h1 className={"mb-5 text-4xl lg:text-6xl font-bold text-base-100" + " " + style.title}>
               La librairie des auto-édité(e)s{" "}
             </h1>
             <p className="mb-5 text-base-100">

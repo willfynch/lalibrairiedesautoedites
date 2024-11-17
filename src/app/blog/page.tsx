@@ -39,7 +39,7 @@ export default async function Blog() {
         </div>
         <Link
             target="_blank"
-            className="btn btn-primary text-neutral "
+            className="btn btn-primary text-neutral mt-10"
             href={"https://tally.so/r/3yq8Ed"}
           >
             Soumettre un article{" "}
