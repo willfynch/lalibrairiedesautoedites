@@ -96,7 +96,7 @@ function BooksPanel(props: { books: BookModel[] }) {
                   className="link font-semibold"
                   role="link"
                   target="_blank"
-                  href="https://ducafeetdesrimes.com"
+                  href={URLS_CONSTANTS.WEBSITE_URL}
                 >
                   @ducaféetdesrimes
                 </a>

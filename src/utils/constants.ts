@@ -6,6 +6,7 @@ export enum URLS_CONSTANTS {
   INSTA_URL = "https://www.instagram.com/librairiedesautoedites/",
   THREADS_URL = "https://www.threads.net/@du_cafe_et_des_rimes",
   SUBSTACK_URL = "https://substack.com/@ducafeetdesrimes",
+  WEBSITE_URL = "https://ducafeetdesrimes.com"
 }
 export enum BOOK_TYPES {
   POETRY = "poetry",
@@ -28,6 +29,10 @@ export const NAVBAR_ITEMS: NavBarItemModel[] = [
     {
         label: "Blog",
         value: "blog"
+    },
+    {
+        label: "À propos",
+        value: "a-propos"
     }
 ]
 
