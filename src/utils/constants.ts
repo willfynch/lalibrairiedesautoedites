@@ -18,9 +18,35 @@ export enum BOOK_TYPES {
 
 export enum METADATA_INFOS {
   TITLE = "La librairie des auto-édité(e)s 🏴‍☠️",
-  DESCRIPTION = "Le seul portail du web pour chiner des livres auto-édités ou proposer les vôtres !",
+  DESCRIPTION = "Le meilleur portail du web pour chiner des livres auto-édités ou proposer les vôtres !",
+  BASE_URL = "https://la-librairie-des-autoedites.ducafeetdesrimes.com"
 }
-
+export const METADATA_KEYWORDS = [
+  "auto-édition", 
+  "auteurs auto-édités", 
+  "autrices auto-éditées", 
+  "librairie auto-édités", 
+  "livres auto-édités", 
+  "auto-publication", 
+  "auteurs indépendants", 
+  "autrices indépendantes", 
+  "littérature indépendante", 
+  "écrivains auto-édités", 
+  "découverte livres", 
+  "pirates de l'édition", 
+  "perles auto-édition", 
+  "portail auto-édition", 
+  "auteurs émergents", 
+  "librairie indépendante", 
+  "communauté auto-édition", 
+  "promotion auteurs auto-édités", 
+  "livres indépendants", 
+  "écriture indépendante", 
+  "pirates du verbe",
+  "librairie autoédités",
+  "librairie pour auteurs autoédités",
+  "librairie pour les autoédités"
+]
 export const NAVBAR_ITEMS: NavBarItemModel[] = [
     {
         label: "Accueil",
