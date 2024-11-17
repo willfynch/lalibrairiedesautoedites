@@ -4,9 +4,10 @@ import Link from "next/link";
 function About() {
   return (
     <section className="flex justify-center my-10">
-      
       <article className="prose">
-        <h1 id="quest-ce-que-cette-librairie">Qu'est-ce que cette librairie ?</h1>
+        <h1 id="quest-ce-que-cette-librairie">
+          Qu'est-ce que cette librairie ?
+        </h1>
         <h2 id="dune-idée-jusquau-web">D'une idée jusqu'au web</h2>
         <p>
           Quand on est à la fois développeur et{" "}
@@ -56,14 +57,16 @@ function About() {
           Maintenant, <strong>j'aimerais que cet espace grandisse</strong>. Des
           livres, des <Link href={"/blog"}>articles de blog</Link>, d'autres
           choses viendront sans doute après :
-          <ul>
-            <li>
-              Espace commentaire modéré pour que les gens puissent laisser des
-              avis sur des livres
-            </li>
-            <li>Espace « à la une »</li>
-            <li>Concours ou tips d'écriture</li>
-          </ul>
+        </p>
+        <ul>
+          <li>
+            Espace commentaire modéré pour que les gens puissent laisser des
+            avis sur des livres
+          </li>
+          <li>Espace « à la une »</li>
+          <li>Concours ou tips d'écriture</li>
+        </ul>
+        <p>
           <strong>On verra ce que la vie nous réserve.</strong>
         </p>
         <h2 id="et-comment-ça-marche-alors">Et comment ça marche, alors ?</h2>
@@ -81,7 +84,9 @@ function About() {
           Soumettre un livre » présents dans la barre de navigation ou sur{" "}
           <Link href={"/"}>la page d'accueil</Link>.
         </p>
-        <h4 id="quand-est-ce-que-mon-livre-apparaitra">Quand est-ce que mon livre apparaitra ?</h4>
+        <h4 id="quand-est-ce-que-mon-livre-apparaitra">
+          Quand est-ce que mon livre apparaitra ?
+        </h4>
         <p>
           S'il correspond aux critères (pas d'incitations à la haine et autres
           joyeusetés, et un formulaire dûment rempli), il sera ajouté au
@@ -103,8 +108,15 @@ function About() {
           <Link href={"/blog"}>blog</Link>. Ici aussi, la mise à jour de la
           liste des articles c'est une fois par mois environ.
         </p>
-        <p>En tout cas, j'espère que cet espace vous plaira. Venez le peupler !</p>
-        <p>Will de <Link target="_blank" href={URLS_CONSTANTS.WEBSITE_URL}><strong>Du Café et des Rimes</strong></Link></p>
+        <p>
+          En tout cas, j'espère que cet espace vous plaira. Venez le peupler !
+        </p>
+        <p>
+          Will de{" "}
+          <Link target="_blank" href={URLS_CONSTANTS.WEBSITE_URL}>
+            <strong>Du Café et des Rimes</strong>
+          </Link>
+        </p>
       </article>
     </section>
   );
