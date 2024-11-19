@@ -3,6 +3,12 @@ import { getAllBlogs } from "@/services/blog.service";
 import BlogPanel from "@/components/blog-panel/blog-panel";
 import Link from "next/link";
 import { TbExternalLink } from "react-icons/tb";
+import { Metadata } from "next";
+import { calculateMetadata } from "@/utils/calculateMetadata";
+import { METADATA_INFOS } from "@/utils/constants";
+
+const DESCRIPTION = `Ici, vous trouverez des articles sur l'écriture, l'autoédition, les livres autoédités, des conseils en tous genres... ! C'est aussi un espace participatif. Vous aussi, vous pouvez avoir votre article dans cette section.`
+export const metadata: Metadata = calculateMetadata(METADATA_INFOS.TITLE + ": le blog", '/blog','images/og.webp', DESCRIPTION)
 
 export default async function Blog() {
   const articles = getAllBlogs();

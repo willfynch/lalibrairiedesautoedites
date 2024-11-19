@@ -1,5 +1,10 @@
-import { URLS_CONSTANTS } from "@/utils/constants";
+import { calculateMetadata } from "@/utils/calculateMetadata";
+import { METADATA_INFOS, URLS_CONSTANTS } from "@/utils/constants";
+import { Metadata } from "next";
 import Link from "next/link";
+
+const DESCRIPTION = `Quand on est à la fois développeur et poète, on se demande comment joindre deux mondes si différents. J'avais envie de coder un projet pour les gens comme moi, les gens qui aiment les mots.`
+export const metadata: Metadata = calculateMetadata(METADATA_INFOS.TITLE + ": à propos",'/a-propos','images/og.webp', DESCRIPTION)
 
 function About() {
   return (
