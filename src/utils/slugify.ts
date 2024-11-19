@@ -14,13 +14,13 @@ export function slugify(input: string | undefined): string {
   for (let i=0, l=from.length ; i<l ; i++) {
       input = input.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
-  input = input.replace('œ', 'oe')
+  input = input.replace('œ', 'oe').replace("’", '-')
   // Remove invalid chars
-  input = input.replace(/[^a-z0-9 -]/g, '') 
+  input = input.replace(/[^a-z0-9 -]/g, '').trim()
   // Collapse whitespace and replace by -
-  .replace(/\s+/g, '-') 
+  input = input.replace(/\s+/g, '-') 
   // Collapse dashes
-  .replace(/-+/g, '-')
+  input = input.replace(/-+/g, '-')
   
 
   return input;

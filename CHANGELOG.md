@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- [#25] 25-fix-have-better-slugs
 - [#21] 21-add-a-propos-page
 - [#20] 20-generate-metadata
 - [#16] 16-add-sitemap
@@ -24,3 +25,4 @@
 [#16]: https://github.com/willfynch/lalibrairiedesautoedites/issues/16
 [#20]: https://github.com/willfynch/lalibrairiedesautoedites/issues/20
 [#21]: https://github.com/willfynch/lalibrairiedesautoedites/issues/21
+[#25]: https://github.com/willfynch/lalibrairiedesautoedites/issues/25
