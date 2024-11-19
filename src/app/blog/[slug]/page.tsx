@@ -19,7 +19,6 @@ import { Metadata } from "next";
 // }
 
 export function generateStaticParams() {
-  console.log(getAllBlogs().map((blog) => ({ slug: blog.slug })));
   return getAllBlogs().map((blog) => ({ slug: blog.slug }));
 }
 
