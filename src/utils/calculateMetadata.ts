@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { StaticImageData } from "next/image";
 import { METADATA_INFOS, METADATA_KEYWORDS } from "./constants";
 
 export function calculateMetadata(
