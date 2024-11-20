@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getAllBlogs } from "@/services/blog.service";
-import BlogPanel from "@/components/blog-panel/blog-panel";
+import BlogPanel from "@/components/blog/blog-panel/blog-panel";
 import Link from "next/link";
 import { TbExternalLink } from "react-icons/tb";
 import { Metadata } from "next";
