@@ -9,7 +9,7 @@ export const metadata: Metadata = calculateMetadata(METADATA_INFOS.TITLE + ": à
 function About() {
   return (
     <section className="flex justify-center my-10">
-      <article className="prose">
+      <article className="prose px-4">
         <h1 id="quest-ce-que-cette-librairie">
           Qu&apos;est-ce que cette librairie ?
         </h1>
