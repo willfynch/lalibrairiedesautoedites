@@ -116,7 +116,7 @@ function BooksPanel(props: { books: BookModel[] }) {
             </div>
           </div>
         </div>
-        <div className="bottom-0 absolute"><UpWaves/></div>
+        <div className="bottom-0 absolute w-full"><UpWaves/></div>
       </div>
 
 
