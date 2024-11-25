@@ -1,6 +1,6 @@
 import { getAllBlogs, getOneBlogArticle } from "@/services/blog.service";
 import { BlogArticleModel } from "@/models/models";
-import BlogArticleContainer from "@/components/blog-article-container/blog-article-container";
+import BlogArticleContainer from "@/components/blog/blog-article-container/blog-article-container";
 import { calculateMetadata } from "@/utils/calculateMetadata";
 import { Metadata } from "next";
 

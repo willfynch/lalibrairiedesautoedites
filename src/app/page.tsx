@@ -1,4 +1,4 @@
-import BooksPanel from "@/components/books-panel/books-panel";
+import BooksPanel from "@/components/books/books-panel/books-panel";
 import { BookModel } from "@/models/models";
 import { getAllBooks } from "@/services/lib.service";
 import { Suspense  } from "react";

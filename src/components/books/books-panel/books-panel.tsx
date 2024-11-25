@@ -10,10 +10,10 @@ import {
   URLS_CONSTANTS,
 } from "@/utils/constants";
 import BookCard from "../book-card/book-card";
-import EmptySvg from "../svgs/empty";
+import EmptySvg from "../../shared/svgs/empty";
 import { ChangeEvent, useEffect, useState } from "react";
 import useScrollPosition from "@/hooks/useScrollPosition";
-import UpWaves from "../svgs/UpWaves";
+import UpWaves from "../../shared/svgs/UpWaves";
 import Link from "next/link";
 import style from './books-panel.module.scss';
 
@@ -116,7 +116,7 @@ function BooksPanel(props: { books: BookModel[] }) {
             </div>
           </div>
         </div>
-        <div className="bottom-0 absolute"><UpWaves/></div>
+        <div className="bottom-0 absolute w-full"><UpWaves/></div>
       </div>
 
 
