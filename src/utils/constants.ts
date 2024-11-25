@@ -91,3 +91,8 @@ export const BOOK_CATEGORIES_TAB_ITEMS: BookCategoryTabItemModel[] = [
 ];
 
 export const ACTIVE_CLASS = "border-primary border-[1px]";
+
+export enum COOKIE_CONSENT {
+  GRANTED = "granted",
+  DENIED = "denied"
+}

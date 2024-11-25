@@ -1,12 +1,27 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ## [Unreleased]
 
+### Fixed
+
 - [#25] 25-fix-have-better-slugs
+- [#10] 10-fix-navbar-blog-outline-in-blog-articles-part
+
+### Added 
+
 - [#21] 21-add-a-propos-page
 - [#20] 20-generate-metadata
 - [#16] 16-add-sitemap
-- [#10] 10-fix-navbar-blog-outline-in-blog-articles-part
 - [#9] 9-add-google-analytics
 - [#6] 6-create-blog-section 
+
+### Changed 
+
 - [#5] 5-improve-hero-aesthetic : Improve general aesthetic
 - [#4] 4-add-librairie-insta-in-social-links 
 - [#2] feat/evol-navigation : put book category navigation in the panel
