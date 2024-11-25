@@ -49,3 +49,17 @@ export interface BlogArticleAuthorModel {
 export type BlogArticleCategoryType = 'auto-édition' | 'écriture' | 'promotion'
 
 export type MatterResult = ReturnType<typeof matter>;
+
+export type InstaFeed = {
+  posts: InstaCard[],
+  account: InstaAccount;
+};
+export type InstaAccount ={
+  link: string;
+  name: string;
+}
+export interface InstaCard {
+  image: string | StaticImageData;
+  link: string;
+  alt: string;
+}
