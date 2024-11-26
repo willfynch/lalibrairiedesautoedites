@@ -22,7 +22,7 @@ module.exports = {
       {me: {
         "primary": "#382208",
         "primary-content": "382208",
-        "secondary": "#744C4D",
+        "secondary": "#221505",
         "accent": "#9D9686",
         "neutral": "#CFC7B8",
         "base-100": "#FDF7EC",
