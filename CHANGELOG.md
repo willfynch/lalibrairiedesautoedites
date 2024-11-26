@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed 
 
 - [#31] 31-improve-blog-presentation
+- [#30] 30-improve-a-propos-page
 - [#5] 5-improve-hero-aesthetic : Improve general aesthetic
 - [#4] 4-add-librairie-insta-in-social-links 
 - [#2] feat/evol-navigation : put book category navigation in the panel
@@ -47,7 +48,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#21]: https://github.com/willfynch/lalibrairiedesautoedites/issues/21
 [#25]: https://github.com/willfynch/lalibrairiedesautoedites/issues/25
 [#29]: https://github.com/willfynch/lalibrairiedesautoedites/issues/29
+[#30]: https://github.com/willfynch/lalibrairiedesautoedites/issues/30
+[#31]: https://github.com/willfynch/lalibrairiedesautoedites/issues/31
+
 
 <!-- TAGS -->
 [1.0.0]: https://github.com/willfynch/lalibrairiedesautoedites/releases/tag/v1.0.0
-[#31]: https://github.com/willfynch/lalibrairiedesautoedites/issues/31
