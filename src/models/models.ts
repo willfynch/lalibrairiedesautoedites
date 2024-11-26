@@ -1,3 +1,5 @@
+import matter from "gray-matter";
+import { StaticImageData } from "next/image";
 
 
 export interface BookModel {
@@ -14,12 +16,50 @@ export interface BookModel {
     type: string;
 }
 
-export interface CategoryModel {
-    label: string;
-    name: string;
-  }
-
-  export interface NavItemModel {
+  export interface BookCategoryTabItemModel {
     label: string;
     type: string;
+    selected?:boolean;
   }
+
+  export interface NavBarItemModel {
+    label: string;
+    value: string;
+  }
+
+  export interface BlogArticleModel {
+    slug: string;
+    title: string;
+    content: string;
+    tags: string[];
+    cover: string | StaticImageData | undefined;
+    date: string;
+    author: BlogArticleAuthorModel;
+    category: BlogArticleCategoryType;
+}
+
+export interface BlogArticleAuthorModel {
+  author_name: string;
+  author_pic: string | StaticImageData;
+  author_description: string;
+  author_link: string;
+  author_title: string;
+}
+
+export type BlogArticleCategoryType = 'auto-édition' | 'écriture' | 'promotion'
+
+export type MatterResult = ReturnType<typeof matter>;
+
+export type InstaFeed = {
+  posts: InstaCard[],
+  account: InstaAccount;
+};
+export type InstaAccount ={
+  link: string;
+  name: string;
+}
+export interface InstaCard {
+  image: string | StaticImageData;
+  link: string;
+  alt: string;
+}

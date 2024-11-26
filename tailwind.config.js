@@ -15,41 +15,25 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
+    require('@tailwindcss/typography'),
   ],
   daisyui: {
     themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-      "cmyk",
-      "autumn",
-      "business",
-      "acid",
-      "lemonade",
-      "night",
-      "coffee",
-      "winter",
-      "dim",
-      "nord",
-      "sunset",
+      {me: {
+        "primary": "#382208",
+        "primary-content": "382208",
+        "secondary": "#221505",
+        "accent": "#9D9686",
+        "neutral": "#CFC7B8",
+        "base-100": "#FDF7EC",
+        "info": "#0369a1",
+        "success": "#15803d",
+        "warning": "#fbbf24",
+        "error": "#be123c",
+
+        "--rounded-btn": "1.5rem"
+      }
+    }
     ],
     darkTheme: "dark", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default

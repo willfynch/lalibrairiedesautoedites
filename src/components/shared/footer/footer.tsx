@@ -4,7 +4,7 @@ import { FaBookBookmark, FaThreads } from "react-icons/fa6";
 import { URLS_CONSTANTS } from "@/utils/constants";
 function Footer() {
   return (
-    <footer className="footer footer-center bg-primary text-primary-content p-10">
+    <footer className="footer footer-center bg-secondary text-neutral p-10">
       <aside>
         
         <FaBookBookmark className="text-4xl" />
@@ -17,7 +17,7 @@ function Footer() {
             className="link font-semibold"
             role="link"
             target="_blank"
-            href="https://ducafeetdesrimes.com"
+            href={URLS_CONSTANTS.WEBSITE_URL}
           >
             @ducaféetdesrimes
           </a>

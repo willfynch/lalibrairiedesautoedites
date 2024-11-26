@@ -1,41 +1,23 @@
-'use client'
-import { NavItemModel } from "@/models/models";
-import { BOOK_TYPES, URLS_CONSTANTS } from "@/utils/constants";
+"use client";
+import { NAVBAR_ITEMS, URLS_CONSTANTS } from "@/utils/constants";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { FaBookBookmark } from "react-icons/fa6";
+import { NavBarItemModel } from "@/models/models";
 
-export const navItems: NavItemModel[] = [
-  {
-    label: "Romans",
-    type: BOOK_TYPES.NOVEL,
-  },
-  {
-    label: "Poésie",
-    type: BOOK_TYPES.POETRY,
-  },
-  {
-    label: "Essais",
-    type: BOOK_TYPES.ESSAY,
-  },
-  {
-    label: "Jeunesse",
-    type: BOOK_TYPES.YOUTH,
-  },
-  {
-    label: "Érotisme",
-    type: BOOK_TYPES.EROTISM
-  }
-];
-
-export const ACTIVE_CLASS = 'border-primary border-[1px]';
+export const ACTIVE_CLASS = "border-primary border-[1px]";
 
 function Navbar() {
+  const path = usePathname();
 
-  const searchParams = useSearchParams();
-const query = searchParams.get("type");
+  function isPathActive(item:NavBarItemModel): boolean {
+    if(path==='/' && item.value === '') return true;
+    if(path.split('/')[1] === item.value) return true;
+    return false;
+  }
+
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 shadow-md">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -57,29 +39,38 @@ const query = searchParams.get("type");
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow"
             >
-              {navItems.map((item: NavItemModel, index: number) => {
+              {NAVBAR_ITEMS.map((item: NavBarItemModel, index: number) => {
                 return (
-                  <li  key={index}>
-                    <a className={item.type===query ? ACTIVE_CLASS : ''} href={`?type=${item.type}`}>{item.label}</a>
+                  <li key={index}>
+                    <a
+                      className={isPathActive(item) ? ACTIVE_CLASS : ""}
+                      href={`/${item.value}`}
+                    >
+                      {item.label}
+                    </a>
                   </li>
                 );
               })}
             </ul>
           </div>
-          <Link className="btn btn-ghost text-md flex" href={"/?type=novel"}>
+          <Link className="btn btn-ghost text-md flex" href="/">
             <FaBookBookmark />
             La librairie des auto-édité(e)s 🏴‍☠️
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-
-            {navItems.map((item: NavItemModel, index: number) => {
+            {NAVBAR_ITEMS.map((item: NavBarItemModel, index: number) => {
               return (
-                <li  key={index}>
-                  <a className={item.type===query ? ACTIVE_CLASS : ''} href={`?type=${item.type}`}>{item.label}</a>
+                <li key={index}>
+                  <a
+                    className={isPathActive(item) ? ACTIVE_CLASS : ""}
+                    href={`/${item.value}`}
+                  >
+                   {item.label}
+                  </a>
                 </li>
               );
             })}
@@ -87,17 +78,17 @@ const query = searchParams.get("type");
         </div>
         <div className="navbar-end hidden md:flex">
           <div
-            className="tooltip tooltip-primary tooltip-bottom"
+            className="tooltip tooltip-primary tooltip-bottom before:text-neutral"
             data-tip="Ouvrir le formulaire"
           >
-            <a
+            <Link
               role="link"
               target="_blank"
               href={URLS_CONSTANTS.BOOK_SUBMISSION_FORM}
-              className="btn btn-primary "
+              className="btn btn-primary text-neutral"
             >
               Soumettre mon livre
-            </a>
+            </Link>
           </div>
         </div>
       </div>
