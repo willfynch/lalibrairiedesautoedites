@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
+- [#29] 29-add-portail-de-lae-page
 - [#21] 21-add-a-propos-page
 - [#20] 20-generate-metadata
 - [#16] 16-add-sitemap
@@ -33,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Search bar
 
 
+<!-- ISSUES -->
 [#2]: https://github.com/willfynch/lalibrairiedesautoedites/issues/2
 [#4]: https://github.com/willfynch/lalibrairiedesautoedites/issues/4
 [#5]: https://github.com/willfynch/lalibrairiedesautoedites/issues/5
@@ -43,3 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#20]: https://github.com/willfynch/lalibrairiedesautoedites/issues/20
 [#21]: https://github.com/willfynch/lalibrairiedesautoedites/issues/21
 [#25]: https://github.com/willfynch/lalibrairiedesautoedites/issues/25
+[#29]: https://github.com/willfynch/lalibrairiedesautoedites/issues/29
+
+<!-- TAGS -->
+[1.0.0]: https://github.com/willfynch/lalibrairiedesautoedites/releases/tag/v1.0.0
