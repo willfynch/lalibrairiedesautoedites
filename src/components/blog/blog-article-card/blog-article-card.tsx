@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function BlogArticleCard(props: BlogArticleModel) {
   return (
-    <div className="group  card lg:card-side bg-white shadow-xl">
+    <div className="group lg:h-[330px] card lg:card-side bg-white shadow-xl">
       <figure className="lg:w-4/6">
         <img
           className="duration-100 scale-105 group-hover:scale-110"
