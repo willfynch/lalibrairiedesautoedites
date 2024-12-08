@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'books' : 'repeat(auto-fill, minmax(350px, 1fr))'
+        'books' : 'repeat(auto-fill, minmax(250px, 1fr))'
       }
     },
   },

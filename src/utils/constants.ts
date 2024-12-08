@@ -101,7 +101,7 @@ export const BOOK_CATEGORIES_TAB_ITEMS: BookCategoryTabItemModel[] = [
     selected: false,
   },
   {
-    label: "Érotisme",
+    label: "+18",
     type: BOOK_TYPES.EROTISM,
     selected: false,
   },
