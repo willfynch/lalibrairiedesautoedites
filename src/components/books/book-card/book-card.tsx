@@ -69,8 +69,8 @@ function BookCard(props: BookModel) {
               href={props.link}
             >
               <button
-                data-tip="Acheter - ouvre la page dans un nouvel onglet"
-                className=" btn md:btn-sm btn-primary text-neutral tooltip tooltip-neutral tooltip-top"
+                data-tip="Acheter"
+                className=" btn md:btn-sm btn-primary text-neutral tooltip tooltip-neutral tooltip-center"
               >
                 <FaCartPlus />
               </button>

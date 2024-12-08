@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 08-12-2024
+
+### Fixed
+
+- [No related issue] Fix layout shift due to large tooltip 
+
 ## [2.0.0] - 08-12-2024
 
 ### Fixed
@@ -55,3 +61,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- TAGS -->
 [1.0.0]: https://github.com/willfynch/lalibrairiedesautoedites/releases/tag/v1.0.0
 [2.0.0]: https://github.com/willfynch/lalibrairiedesautoedites/releases/tag/v2.0.0
+[2.0.1]: https://github.com/willfynch/lalibrairiedesautoedites/releases/tag/v2.0.1
