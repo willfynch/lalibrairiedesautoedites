@@ -25,7 +25,7 @@ function PortailAE() {
                 style.title
               }
             >
-              Le portail de l'auto-édition
+              Le portail de l&apos;auto-édition
             </h1>
             <div
               className=" tooltip  tooltip-primary tooltip-top before:text-neutral"
@@ -42,7 +42,7 @@ function PortailAE() {
       <article className="prose my-20 px-10 md:px-4">
         <p>
           Leçon numéro 1 : à plusieurs, on va plus loin. <br /> Je vous présente donc
-          le Portail de l'auto-édition fondé par{" "}
+          le Portail de l&apos;auto-édition fondé par{" "}
           <a
             href="https://www.instagram.com/portailautoedition"
             target="_blank"
@@ -61,7 +61,7 @@ function PortailAE() {
         <h2>Quels sont les projets du Portail AE ?</h2>
         <p>Laissons la parole à la créatrice : </p>
         <blockquote>
-          Aloha moi c'est Abby ! Je suis la fière et heureuse fondatrice du
+          Aloha moi c&apos;est Abby ! Je suis la fière et heureuse fondatrice du
           Portail de l&apos;auto-édition : le but étant entre autres de
           valoriser les auteurs et autrices de la littérature indépendante.
           Depuis 2017, je mène plusieurs projets pour ça via différents formats.
@@ -76,7 +76,7 @@ function PortailAE() {
             youtube
           </li>
           <li>
-            Lecture des 3ers chapitres d'un livre auto-édité | sur youtube et
+            Lecture des 3ers chapitres d&apos;un livre auto-édité | sur youtube et
             sur le podcast
           </li>
           <li>Éventail du portail | sur instagram</li>
@@ -85,7 +85,7 @@ function PortailAE() {
             Les actualités auto-édition et les besoins/services pour AE | sur
             instagram
           </li>
-          <li>Première expérience d'AE | sur le podcast</li>
+          <li>Première expérience d&apos;AE | sur le podcast</li>
         </ul>
 
         <p>

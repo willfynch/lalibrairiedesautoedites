@@ -11,7 +11,7 @@ export default function RootLayout({
 
   return (
     <html data-theme="me" lang="en">
-      <LayoutClient children={children}/>
+      <LayoutClient>{children}</LayoutClient>
       <GoogleAnalytics gaId={process.env.GA_ID ?? "nothing"}/>
     </html>
   );

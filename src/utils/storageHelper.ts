@@ -10,6 +10,6 @@ export function getLocalStorage(key: string) : string {
     
 }
 
-export function setLocalStorage(key: string, value:any){
+export function setLocalStorage(key: string, value:string|number){
     localStorage.setItem(key, JSON.stringify(value));
 }

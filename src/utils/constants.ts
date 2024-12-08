@@ -5,9 +5,6 @@ import {
 } from "@/models/models";
 import insta1 from "../../public/images/instafeed/insta1.webp";
 import insta2 from "../../public/images/instafeed/insta2.webp";
-import insta3 from "../../public/images/instafeed/insta3.webp";
-import insta4 from "../../public/images/instafeed/insta4.webp";
-import insta5 from "../../public/images/instafeed/insta5.webp";
 import insta6 from "../../public/images/instafeed/insta6.webp";
 import insta7 from "../../public/images/instafeed/insta7.webp";
 import insta8 from "../../public/images/instafeed/insta8.webp";

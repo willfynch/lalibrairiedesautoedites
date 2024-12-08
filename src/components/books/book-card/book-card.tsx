@@ -9,11 +9,11 @@ import { FaInfoCircle } from "react-icons/fa";
 function BookCard(props: BookModel) {
   function showModal() {
     if (document)
-      //@ts-expect-error
+      //@ts-expect-error because there is a virtual dom 
       document.getElementById("synopsis_modal_" + props.id)!.showModal();
   }
 
-  function handleClickOnBuyBook(event: any, link: string) {
+  function handleClickOnBuyBook(event: React.MouseEvent, link: string) {
     event.preventDefault();
     sendGAEvent("event", "buttonClicked", { value: props.title });
     window.open(link, "_blank");

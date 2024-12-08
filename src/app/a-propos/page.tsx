@@ -50,7 +50,7 @@ function About() {
       <article className="prose my-20 px-10 md:px-4 text-justify">
         <h2 id="dune-idée-jusquau-web">D&apos;une idée jusqu&apos;au web</h2>
         <p>
-          Quand on est à la fois développeur (un autre type d'écrivain qui, lui
+          Quand on est à la fois développeur (un autre type d&apos;écrivain qui, lui
           écrit du code informatique 😉) et{" "}
           <Link target="_blank" href={URLS_CONSTANTS.WEBSITE_URL}>
             poète
@@ -99,8 +99,8 @@ function About() {
             librairie Jeunes Pousses
           </Link>{" "}
           mais je voulais créer quelque chose de <strong>principalement participatif</strong> et{" "}
-          <strong>simple d'usage</strong>. Quelque chose qui s&apos;apparente plus à un
-          media, ou à une communauté. Et qui pourrait s'articuler avec les
+          <strong>simple d&apos;usage</strong>. Quelque chose qui s&apos;apparente plus à un
+          media, ou à une communauté. Et qui pourrait s&apos;articuler avec les
           autres projets déjà existants.
         </p>
         <h2 id="et-cette-librairie-était-née">Et cette librairie était née</h2>

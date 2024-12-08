@@ -19,7 +19,7 @@ function LayoutClient({children}:Readonly<{
       return;
     }
 
-    //@ts-expect-error
+    //@ts-expect-error because we use a virtual dom
     if (document) document.getElementById("my_modal_5")!.showModal();
   }, []);
 
@@ -74,7 +74,7 @@ function LayoutClient({children}:Readonly<{
             Coffee icons created by Nikita Golubev - Flaticon
           </a>
           <p className="py-4">
-            J'utilise Google Analytics afin de savoir quels livres, articles,
+            J&apos;utilise Google Analytics afin de savoir quels livres, articles,
             ont du succès.{" "}
             <strong>
               Les données sont utilisées uniquement pour améliorer le site
@@ -85,16 +85,16 @@ function LayoutClient({children}:Readonly<{
             <form method="dialog" className="flex flex-row gap-2">
               {/* if there is a button in form, it will close the modal */}
               <button
-                onClick={(e) => denyCookies()}
+                onClick={() => denyCookies()}
                 className="btn btn-sm btn-error"
               >
                 Je refuse
               </button>
               <button
-                onClick={(e) => acceptCookies()}
+                onClick={() => acceptCookies()}
                 className="btn btn-sm btn-success"
               >
-                J'adore les cookies
+                J&apos;adore les cookies
               </button>
             </form>
           </div>
