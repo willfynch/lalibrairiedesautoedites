@@ -98,10 +98,10 @@ function About() {
           <Link target="_blank" href={"https://librairiejeunespousses.fr/"}>
             librairie Jeunes Pousses
           </Link>{" "}
-          mais je voyais quelque chose de <strong>participatif</strong> et{" "}
-          <strong>simple</strong>. Quelque chose qui s&apos;apparente plus à un
+          mais je voulais créer quelque chose de <strong>principalement participatif</strong> et{" "}
+          <strong>simple d'usage</strong>. Quelque chose qui s&apos;apparente plus à un
           media, ou à une communauté. Et qui pourrait s'articuler avec les
-          autres projets.
+          autres projets déjà existants.
         </p>
         <h2 id="et-cette-librairie-était-née">Et cette librairie était née</h2>
         <p>
