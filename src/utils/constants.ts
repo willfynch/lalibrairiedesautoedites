@@ -24,6 +24,7 @@ export enum BOOK_TYPES {
   ESSAY = "essay",
   YOUTH = "youth",
   EROTISM = "erotism",
+  HUMOR = "humour"
 }
 
 export enum METADATA_INFOS {
@@ -96,6 +97,11 @@ export const BOOK_CATEGORIES_TAB_ITEMS: BookCategoryTabItemModel[] = [
     label: "Jeunesse",
     type: BOOK_TYPES.YOUTH,
     selected: false,
+  },
+  {
+    label: "Humour",
+    type: BOOK_TYPES.HUMOR,
+    selected: false
   },
   {
     label: "+18",
