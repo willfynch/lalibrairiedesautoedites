@@ -11,7 +11,6 @@ import insta8 from "../../public/images/instafeed/insta8.webp";
 import insta9 from "../../public/images/instafeed/insta9.webp";
 
 export enum URLS_CONSTANTS {
-  JSON_BIN_URL = "https://api.jsonbin.io/v3/b/",
   BOOK_SUBMISSION_FORM = "https://tally.so/r/w2vY6j",
   INSTA_URL = "https://www.instagram.com/librairiedesautoedites/",
   THREADS_URL = "https://www.threads.net/@du_cafe_et_des_rimes",
