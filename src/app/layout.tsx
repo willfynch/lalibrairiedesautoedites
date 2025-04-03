@@ -1,4 +1,4 @@
-import LayoutClient from "@/components/shared/LayoutClient";
+import { LayoutClient } from "@/components/shared";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 

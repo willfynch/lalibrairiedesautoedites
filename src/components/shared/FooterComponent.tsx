@@ -2,7 +2,7 @@ import { FaInstagram } from "react-icons/fa";
 import { BsSubstack } from "react-icons/bs";
 import { FaBookBookmark, FaThreads } from "react-icons/fa6";
 import { URLS_CONSTANTS } from "@/utils/constants";
-function Footer() {
+export const Footer = () => {
   return (
     <footer className="footer footer-center bg-secondary text-neutral p-10">
       <aside>
@@ -48,4 +48,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+

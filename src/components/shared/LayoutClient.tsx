@@ -1,13 +1,14 @@
 "use client";
 import { COOKIE_CONSENT } from "@/utils/constants";
 import { getLocalStorage, setLocalStorage } from "@/utils/storageHelper";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import { Navbar } from "./NavHeader";
+import { Footer } from "./FooterComponent";
 
-function LayoutClient({
+
+export function LayoutClient({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -105,4 +106,3 @@ function LayoutClient({
   );
 }
 
-export default LayoutClient;

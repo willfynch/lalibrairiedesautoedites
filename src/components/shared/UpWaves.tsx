@@ -1,7 +1,7 @@
 'use client'
 
 
-export function UpWaves() {
+export const UpWaves = () => {
 
     return (
         <svg

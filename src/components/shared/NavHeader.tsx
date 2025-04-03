@@ -7,7 +7,7 @@ import { NavBarItemModel } from "@/types/models";
 
 export const ACTIVE_CLASS = "border-primary border-[1px]";
 
-function Navbar() {
+export const Navbar = () => {
   const path = usePathname();
 
   function isPathActive(item:NavBarItemModel): boolean {
@@ -96,4 +96,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+

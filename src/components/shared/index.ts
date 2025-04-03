@@ -1,5 +1,5 @@
 export * from "./UpWaves";
 export * from "./EmptySvg";
-export * from "./Footer";
-export * from "./Navbar";
 export * from "./LayoutClient";
+export * from "./NavHeader";
+export * from "./FooterComponent";
