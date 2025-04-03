@@ -1,7 +1,7 @@
-import Instacard from "../instacard/instacard";
-import { InstaCard, InstaFeed } from "@/models/models";
+import { InstaCard, InstaFeed } from "@/types/models";
 import { FaInstagram } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
+import Instacard from "./Instacard";
 
 export interface InstafeedProps {
   instafeed: InstaFeed;

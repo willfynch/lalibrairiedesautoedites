@@ -1,5 +1,5 @@
 "use client";
-import { BookModel } from "@/models/models";
+import { BookModel } from "@/types/models";
 import { sendGAEvent } from "@next/third-parties/google";
 import { Fragment } from "react";
 import { TbExternalLink } from "react-icons/tb";

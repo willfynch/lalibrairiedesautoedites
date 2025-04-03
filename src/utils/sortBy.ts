@@ -1,4 +1,4 @@
-import { BlogArticleModel } from "@/models/models";
+import { BlogArticleModel } from "@/types/models";
 
 export enum FIELDS {
     DATE = 'date'

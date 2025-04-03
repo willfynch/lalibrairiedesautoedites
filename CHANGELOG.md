@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [next-3.0.0] 
 
+### Changed 
+
+- [#17] Refacto
 - [#39] Use Supabase S3 storage for books
 
 ## [2.0.3] - 11-12-2024
@@ -64,6 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#9]: https://github.com/willfynch/lalibrairiedesautoedites/issues/9
 [#10]: https://github.com/willfynch/lalibrairiedesautoedites/issues/10
 [#16]: https://github.com/willfynch/lalibrairiedesautoedites/issues/16
+[#17]: https://github.com/willfynch/lalibrairiedesautoedites/issues/17
 [#20]: https://github.com/willfynch/lalibrairiedesautoedites/issues/20
 [#21]: https://github.com/willfynch/lalibrairiedesautoedites/issues/21
 [#25]: https://github.com/willfynch/lalibrairiedesautoedites/issues/25

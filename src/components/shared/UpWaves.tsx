@@ -1,7 +1,7 @@
 'use client'
 
 
-export default function UpWaves() {
+export function UpWaves() {
 
     return (
         <svg

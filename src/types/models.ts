@@ -1,5 +1,6 @@
 import matter from "gray-matter";
 import { StaticImageData } from "next/image";
+import { BlogArticleCategory, BookCategory } from "./commons";
 
 
 export interface BookModel {
@@ -18,8 +19,7 @@ export interface BookModel {
 
   export interface BookCategoryTabItemModel {
     label: string;
-    type: string;
-    selected?:boolean;
+    type: BookCategory;
   }
 
   export interface NavBarItemModel {
@@ -35,7 +35,7 @@ export interface BookModel {
     cover: string | StaticImageData | undefined;
     date: string;
     author: BlogArticleAuthorModel;
-    category: BlogArticleCategoryType;
+    category: BlogArticleCategory;
 }
 
 export interface BlogArticleAuthorModel {
@@ -46,7 +46,6 @@ export interface BlogArticleAuthorModel {
   author_title: string;
 }
 
-export type BlogArticleCategoryType = 'auto-édition' | 'écriture' | 'promotion'
 
 export type MatterResult = ReturnType<typeof matter>;
 

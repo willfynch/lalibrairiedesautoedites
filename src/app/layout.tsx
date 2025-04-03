@@ -1,5 +1,5 @@
+import LayoutClient from "@/components/shared/LayoutClient";
 import "./globals.css";
-import LayoutClient from "@/components/shared/layout-client/layout-client";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default function RootLayout({
@@ -10,7 +10,7 @@ export default function RootLayout({
 
 
   return (
-    <html data-theme="me" lang="en">
+    <html data-theme="me" lang="fr">
       <LayoutClient>{children}</LayoutClient>
       <GoogleAnalytics gaId={process.env.GA_ID ?? "nothing"}/>
     </html>
