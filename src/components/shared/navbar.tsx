@@ -3,7 +3,7 @@ import { NAVBAR_ITEMS, URLS_CONSTANTS } from "@/utils/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaBookBookmark } from "react-icons/fa6";
-import { NavBarItemModel } from "@/models/models";
+import { NavBarItemModel } from "@/types/models";
 
 export const ACTIVE_CLASS = "border-primary border-[1px]";
 

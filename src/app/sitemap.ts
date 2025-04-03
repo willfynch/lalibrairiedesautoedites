@@ -1,4 +1,4 @@
-import { BlogArticleModel } from '@/models/models';
+import { BlogArticleModel } from '@/types/models';
 import { getAllBlogs } from '@/services/blog.service';
 import { METADATA_INFOS } from '@/utils/constants';
 import { MetadataRoute } from 'next'

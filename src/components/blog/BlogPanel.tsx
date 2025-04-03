@@ -1,6 +1,6 @@
-import { BlogArticleModel } from "@/models/models";
-import BlogArticleCard from "../blog-article-card/blog-article-card";
+import { BlogArticleModel } from "@/types/models";
 import { FIELDS, sortBy } from "@/utils/sortBy";
+import BlogArticleCard from "./BlogArticleCard";
 
 function BlogPanel(props: { articles: BlogArticleModel[] }) {
   return (

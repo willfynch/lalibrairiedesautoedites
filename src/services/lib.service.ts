@@ -1,4 +1,4 @@
-import { BookModel } from "@/models/models";
+import { BookModel } from "@/types";
 // import data from "../mock/data.json";
 
 // export function getAllBooksMock(): BookModel[] {
@@ -12,7 +12,7 @@ export async function getAllBooks() : Promise<BookModel[]> {
     const books = jsonData.books ;
     return books as Promise<BookModel[]>
   }catch(error){
-    console.error("Failed to fetch jsonbin data !", error);
+    console.error("Failed to fetch data !", error);
     return [] as unknown as Promise<BookModel[]>
   }
 }

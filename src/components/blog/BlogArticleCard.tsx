@@ -1,4 +1,4 @@
-import { BlogArticleModel } from "@/models/models";
+import { BlogArticleModel } from "@/types/models";
 import { formatDate } from "@/utils/formatDate";
 import Link from "next/link";
 

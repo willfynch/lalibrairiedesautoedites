@@ -1,4 +1,4 @@
-import { InstaCard } from "@/models/models";
+import { InstaCard } from "@/types/models";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
 

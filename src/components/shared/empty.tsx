@@ -1,4 +1,4 @@
-function EmptySvg() {
+export const EmptySvg = () => {
   return (
     <svg
       data-name="Layer 1"
@@ -232,6 +232,4 @@ function EmptySvg() {
       />
     </svg>
   );
-}
-
-export default EmptySvg;
+};

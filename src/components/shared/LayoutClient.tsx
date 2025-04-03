@@ -1,14 +1,17 @@
-'use client'
+"use client";
 import { COOKIE_CONSENT } from "@/utils/constants";
 import { getLocalStorage, setLocalStorage } from "@/utils/storageHelper";
 import { Suspense, useEffect, useState } from "react";
-import Navbar from "../navbar/navbar";
-import Footer from "../footer/footer";
-import Image from "next/image";
 
-function LayoutClient({children}:Readonly<{
-    children: React.ReactNode;
-  }>) {
+import Image from "next/image";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+
+function LayoutClient({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [cookieConsent, setCookieConsent] = useState<
     COOKIE_CONSENT.DENIED | COOKIE_CONSENT.GRANTED | null
   >(null);
@@ -45,9 +48,7 @@ function LayoutClient({children}:Readonly<{
 
   return (
     <body className={``}>
-      <Suspense>
-        <Navbar />
-      </Suspense>
+      <Navbar />
       {children}
       <Footer />
 
@@ -74,8 +75,8 @@ function LayoutClient({children}:Readonly<{
             Coffee icons created by Nikita Golubev - Flaticon
           </a>
           <p className="py-4">
-            J&apos;utilise Google Analytics afin de savoir quels livres, articles,
-            ont du succès.{" "}
+            J&apos;utilise Google Analytics afin de savoir quels livres,
+            articles, ont du succès.{" "}
             <strong>
               Les données sont utilisées uniquement pour améliorer le site
             </strong>{" "}

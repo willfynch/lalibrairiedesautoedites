@@ -2,7 +2,7 @@ import {
   BookCategoryTabItemModel,
   InstaFeed,
   NavBarItemModel,
-} from "@/models/models";
+} from "@/types/models";
 import insta1 from "../../public/images/instafeed/insta1.webp";
 import insta2 from "../../public/images/instafeed/insta2.webp";
 import insta6 from "../../public/images/instafeed/insta6.webp";
@@ -16,14 +16,6 @@ export enum URLS_CONSTANTS {
   THREADS_URL = "https://www.threads.net/@du_cafe_et_des_rimes",
   SUBSTACK_URL = "https://substack.com/@ducafeetdesrimes",
   WEBSITE_URL = "https://ducafeetdesrimes.com",
-}
-export enum BOOK_TYPES {
-  POETRY = "poetry",
-  NOVEL = "novel",
-  ESSAY = "essay",
-  YOUTH = "youth",
-  EROTISM = "erotism",
-  HUMOR = "humour"
 }
 
 export enum METADATA_INFOS {
@@ -79,33 +71,27 @@ export const NAVBAR_ITEMS: NavBarItemModel[] = [
 export const BOOK_CATEGORIES_TAB_ITEMS: BookCategoryTabItemModel[] = [
   {
     label: "Romans",
-    type: BOOK_TYPES.NOVEL,
-    selected: true,
+    type: "novel",
   },
   {
     label: "Poésie",
-    type: BOOK_TYPES.POETRY,
-    selected: false,
+    type: "poetry",
   },
   {
     label: "Essais",
-    type: BOOK_TYPES.ESSAY,
-    selected: false,
+    type: "essay",
   },
   {
     label: "Jeunesse",
-    type: BOOK_TYPES.YOUTH,
-    selected: false,
+    type: "youth",
   },
   {
     label: "Humour",
-    type: BOOK_TYPES.HUMOR,
-    selected: false
+    type: "humour",
   },
   {
     label: "+18",
-    type: BOOK_TYPES.EROTISM,
-    selected: false,
+    type: "erotism",
   },
 ];
 
@@ -118,8 +104,8 @@ export enum COOKIE_CONSENT {
 
 export const INSTAFEED: InstaFeed = {
   account: {
-    name: 'portailautoedition',
-    link: 'https://www.instagram.com/portailautoedition/',
+    name: "portailautoedition",
+    link: "https://www.instagram.com/portailautoedition/",
   },
   posts: [
     {

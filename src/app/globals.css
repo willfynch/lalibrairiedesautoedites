@@ -4,11 +4,6 @@
 @tailwind typography
 
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 html,
 body {
   max-width: 100vw;

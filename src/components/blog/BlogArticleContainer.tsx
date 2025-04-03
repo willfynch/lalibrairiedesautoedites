@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import Markdown from "markdown-to-jsx";
 import Image from "next/image";
-import { BlogArticleModel } from "@/models/models";
+import { BlogArticleModel } from "@/types/models";
 import { formatDate } from "@/utils/formatDate";
 import { TbExternalLink } from "react-icons/tb";
 import useScrollPercentage from "@/hooks/useScrollPercentage";
@@ -12,7 +12,7 @@ export interface BlogArticleContainerProps {
   blogArticle: BlogArticleModel | undefined;
   slug: string;
 }
-export default function OneWritingContainer(props: BlogArticleContainerProps) {
+export default function BlogArticleContainer(props: BlogArticleContainerProps) {
   const scrollPercentage = useScrollPercentage();
 
   return (

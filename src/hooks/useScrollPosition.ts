@@ -5,7 +5,7 @@ function useScrollPosition() {
   // State to store the vertical scroll position
   const [scrollY, setScrollY] = useState(0);
   // State to store the scroll direction ('up' or 'down')
-  const [scrollDirection, setScrollDirection] = useState<string | null>(null);
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
   const previousScrollY = useRef(0);
 
   useEffect(() => {

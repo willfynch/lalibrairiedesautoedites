@@ -1,6 +1,6 @@
-import BooksPanel from "@/components/books/books-panel/books-panel";
-import { BookModel } from "@/models/models";
-import { getAllBooks } from "@/services/lib.service";
+import BooksPanel from "@/components/books/BooksPanel";
+import { BookModel } from "@/types";
+import {  getAllBooks  } from "@/services/lib.service";
 import { Suspense  } from "react";
 import type { Metadata } from 'next'
 import { METADATA_INFOS } from "@/utils/constants";

@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import { slugify } from "../utils/slugify";
-import { BlogArticleModel, MatterResult } from "@/models/models";
+import { BlogArticleModel, MatterResult } from "@/types/models";
 
 export enum UTILITIES {
     ARTICLES_PATH = "public/blog",

@@ -1,8 +1,8 @@
-import UpWaves from "@/components/shared/svgs/UpWaves";
 import style from "./page.module.scss";
 import { TbExternalLink } from "react-icons/tb";
-import Instafeed from "@/components/portail-ae/instafeed/instafeed";
+import Instafeed from "@/components/portail-ae/Instafeed";
 import { INSTAFEED } from "@/utils/constants";
+import { UpWaves } from "@/components/shared";
 
 function PortailAE() {
   return (
