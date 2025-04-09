@@ -3,7 +3,7 @@ import { TbExternalLink } from "react-icons/tb";
 import Instafeed from "@/components/portail-ae/Instafeed";
 import { INSTAFEED } from "@/utils/constants";
 import { UpWaves } from "@/components/shared";
-
+export const dynamic = "force-static"
 function PortailAE() {
   return (
     <section className="flex flex-col items-center justify-center mb-10">

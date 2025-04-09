@@ -5,11 +5,13 @@ import { Fragment } from "react";
 import { TbExternalLink } from "react-icons/tb";
 import { FaCartPlus } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
+import Link from "next/link";
+import { slugify } from "markdown-to-jsx";
 
 function BookCard(props: BookModel) {
   function showModal() {
     if (document)
-      //@ts-expect-error because there is a virtual dom 
+      //@ts-expect-error because there is a virtual dom
       document.getElementById("synopsis_modal_" + props.id)!.showModal();
   }
 
@@ -30,7 +32,9 @@ function BookCard(props: BookModel) {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{props.title}</h2>
+          <Link href={`/livres/${slugify(props.title)}`}>
+            <h2 className="card-title">{props.title}</h2>
+          </Link>
           <h3>{props.author_name}</h3>
           <div className="card-actions justify-start wrap">
             {props.tags.slice(0, 3).map((tag: string, index: number) => (
@@ -92,7 +96,9 @@ function BookCard(props: BookModel) {
           <div className="modal-action">
             <form method="dialog" className="flex flex-row gap-2">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-sm btn-primary text-neutral">Fermer</button>
+              <button className="btn btn-sm btn-primary text-neutral">
+                Fermer
+              </button>
             </form>
           </div>
         </div>
