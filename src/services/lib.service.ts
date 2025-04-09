@@ -1,6 +1,5 @@
 import { BookModel } from "@/types";
 import data from "../mock/data.json";
-import { slugify } from "markdown-to-jsx";
 
 export let allBooks: BookModel[] = [];
 
