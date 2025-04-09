@@ -1,11 +1,11 @@
 import { BookModel } from "@/types";
-import data from "../mock/data.json";
+// import data from "../mock/data.json";
 
 export let allBooks: BookModel[] = [];
 
-export function getAllBooksMock(): BookModel[] {
-  return data.books;
-}
+// export function getAllBooksMock(): BookModel[] {
+//   return data.books;
+// }
 
 export async function getAllBooks() : Promise<BookModel[]> {
   try {
