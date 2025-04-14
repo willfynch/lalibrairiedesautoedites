@@ -1,7 +1,6 @@
-import { allBooks, getAllBooks, getOneBook } from "@/services/lib.service";
+import { getAllBooks, getOneBook } from "@/services/lib.service";
 import { BookModel } from "@/types";
 import { calculateMetadata } from "@/utils/calculateMetadata";
-import { slugify } from "markdown-to-jsx";
 import { Metadata } from "next";
 import { Fragment } from "react";
 
