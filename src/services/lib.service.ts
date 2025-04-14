@@ -1,4 +1,5 @@
 import { BookModel } from "@/types";
+import { slugify } from "@/utils/slugify";
 // import data from "../mock/data.json";
 
 export let allBooks: BookModel[] = [];
@@ -22,7 +23,7 @@ export async function getAllBooks() : Promise<BookModel[]> {
 }
 
 export function getOneBook(title:string): BookModel {
-  return allBooks.filter(book=>book.title === title)[0];
+  return allBooks.filter(book=>slugify(book.title) === title)[0];
 }
 
 
