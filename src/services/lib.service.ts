@@ -13,11 +13,16 @@ export async function getAllBooks() : Promise<BookModel[]> {
     const jsonData = await data.json();
     const books = jsonData.books;
     allBooks = books as BookModel[];
+    console.log("all books", allBooks[0])
     return books as Promise<BookModel[]>
   }catch(error){
     console.error("Failed to fetch data !", error);
     return [] as unknown as Promise<BookModel[]>
   }
+}
+
+export function getOneBook(title:string): BookModel {
+  return allBooks.filter(book=>book.title === title)[0];
 }
 
 

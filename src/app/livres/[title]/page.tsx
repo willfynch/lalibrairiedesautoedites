@@ -1,16 +1,38 @@
-import { allBooks } from "@/services/lib.service";
+import { allBooks, getAllBooks, getOneBook } from "@/services/lib.service";
+import { BookModel } from "@/types";
+import { calculateMetadata } from "@/utils/calculateMetadata";
 import { slugify } from "markdown-to-jsx";
+import { Metadata } from "next";
 import { Fragment } from "react";
 
-export const dynamic = "force-dynamic";
-
-const OneBookPage = async ({ params }: { params: { title: string } }) => {
-  const book = allBooks.findLast(
-    (book) => slugify(book.title) === params.title.toLowerCase()
+export async function generateStaticParams() {
+  const books = await getAllBooks();
+  return books.map((book) => ({ title: book.title }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: { title: string };
+}): Promise<Metadata> {
+  const title = params.title;
+  const book = getOneBook(title);
+  return calculateMetadata(
+    book?.title ?? "Pas de titre",
+    `/livre/${book?.title}`,
+    book?.cover as string,
+    book?.catch_phrase.slice(0, 100) + "..."
   );
+}
+const OneBookPage = async ({ params }: { params: { title: string } }) => {
+
+  
+    const { title } = params;
+    const book: BookModel | undefined = getOneBook(title);
+
 
   return (
     <Fragment>
+      <h1>Détails</h1>
       <p>{book?.title}</p>
     </Fragment>
   );
