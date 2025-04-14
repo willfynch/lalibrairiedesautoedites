@@ -1,12 +1,13 @@
 import { getAllBooks, getOneBook } from "@/services/lib.service";
 import { BookModel } from "@/types";
 import { calculateMetadata } from "@/utils/calculateMetadata";
+import { slugify } from "@/utils/slugify";
 import { Metadata } from "next";
 import { Fragment } from "react";
 
 export async function generateStaticParams() {
   const books = await getAllBooks();
-  return books.map((book) => ({ title: book.title }));
+  return books.map((book) => ({ title: slugify(book.title) }));
 }
 export async function generateMetadata({
   params,
