@@ -6,7 +6,7 @@ import { TbExternalLink } from "react-icons/tb";
 import { FaCartPlus } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
 import Link from "next/link";
-import { slugify } from "markdown-to-jsx";
+import { slugify } from "@/utils/slugify";
 
 function BookCard(props: BookModel) {
   function showModal() {
