@@ -5,6 +5,7 @@ import { slugify } from "@/utils/slugify";
 export let allBooks: BookModel[] = [];
 
 // export function getAllBooksMock(): BookModel[] {
+//   allBooks = data.books as BookModel[];
 //   return data.books;
 // }
 
@@ -14,7 +15,6 @@ export async function getAllBooks() : Promise<BookModel[]> {
     const jsonData = await data.json();
     const books = jsonData.books;
     allBooks = books as BookModel[];
-    console.log("all books", allBooks[0])
     return books as Promise<BookModel[]>
   }catch(error){
     console.error("Failed to fetch data !", error);
@@ -23,7 +23,11 @@ export async function getAllBooks() : Promise<BookModel[]> {
 }
 
 export function getOneBook(title:string): BookModel {
-  return allBooks.filter(book=>slugify(book.title) === title)[0];
+  console.log(slugify(title))
+  console.log(title)
+  const slugs = allBooks.map(book=>slugify(book.title));
+  // console.log(slugs)
+  return allBooks.findLast(book=>slugify(book.title) === title) as BookModel;
 }
 
 

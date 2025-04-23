@@ -11,7 +11,7 @@ export const dynamic = "force-static"
 export default async function Home() {
 
   let books: BookModel[] = [];
-  books = await getAllBooks();
+  books =  await getAllBooks();
 
   return (
     <Suspense>

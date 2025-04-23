@@ -1,4 +1,4 @@
-import { getAllBooksMock, getOneBook } from "@/services/lib.service";
+import { getAllBooks, getOneBook } from "@/services/lib.service";
 import { BookModel } from "@/types";
 import { calculateMetadata } from "@/utils/calculateMetadata";
 import { slugify } from "@/utils/slugify";
@@ -8,7 +8,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 
 export async function generateStaticParams() {
-  const books = getAllBooksMock();
+  const books = await getAllBooks();
   return books.map((book) => ({ title: slugify(book.title) }));
 }
 export async function generateMetadata({
