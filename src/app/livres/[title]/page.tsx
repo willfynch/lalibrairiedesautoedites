@@ -2,20 +2,17 @@ import { BookReviewCard } from "@/components/books/BookReviewCard";
 import { UpWaves } from "@/components/shared";
 import {
   getAllBooks,
-  getAllBooksMock,
   getOneBook,
-  getOneBookMock,
 } from "@/services/lib.service";
 import { BookModel } from "@/types";
 import { calculateMetadata } from "@/utils/calculateMetadata";
 import { slugify } from "@/utils/slugify";
 import { Metadata } from "next";
-import { Fragment } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 
 export async function generateStaticParams() {
-  const books = await getAllBooksMock();
+  const books = await getAllBooks();
   return books.map((book) => ({ title: slugify(book.title) }));
 }
 export async function generateMetadata({
@@ -34,7 +31,7 @@ export async function generateMetadata({
 }
 const OneBookPage = async ({ params }: { params: { title: string } }) => {
   const { title } = params;
-  const book: BookModel | undefined = getOneBookMock();
+  const book: BookModel | undefined = getOneBook(title);
 
   return (
     <main>
@@ -98,24 +95,25 @@ const OneBookPage = async ({ params }: { params: { title: string } }) => {
             ✨
             <span>
               Vous avez écrit un avis sur ce livre ? Vous pouvez me le proposer
-              en m'envoyant un mail {""}
+              en m&apos;envoyant un mail {""}
               <a
                 className="text-base-100 font-bold hover:text-warning"
                 href="mailto:ducafeetdesrimes@proton.me"
               >
                 ICI 📧
               </a>{" "}
-              et je l'ajouterai à cette page !
+              et je l&apos;ajouterai à cette page !
             </span>
           </div>
 
           <div className="flex flex-col mb-10">
             {book.reviews &&
               book?.reviews?.length > 0 &&
-              book?.reviews.map((review, index) => {
+              book?.reviews.map((review) => {
                 return (
                   <BookReviewCard
-                    title={review.title}
+                  key={review.title}  
+                  title={review.title}
                     link={review.link}
                     reviewer={review.reviewer}
                     image={review.image}
