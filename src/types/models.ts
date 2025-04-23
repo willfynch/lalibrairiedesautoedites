@@ -15,6 +15,14 @@ export interface BookModel {
     id: string;
     social_link?: string;
     type: string;
+    reviews?: BookReviewModel[];
+}
+
+interface BookReviewModel {
+  image?: string;
+  title: string;
+  link: string;
+  reviewer: string;
 }
 
   export interface BookCategoryTabItemModel {
