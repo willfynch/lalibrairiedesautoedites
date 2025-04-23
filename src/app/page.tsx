@@ -7,7 +7,6 @@ import { METADATA_INFOS } from "@/utils/constants";
 import { calculateMetadata } from "@/utils/calculateMetadata";
 
 export const metadata: Metadata = calculateMetadata(METADATA_INFOS.TITLE, '/','images/og.webp')
-export const dynamic = "force-static"
 export default async function Home() {
 
   let books: BookModel[] = [];
