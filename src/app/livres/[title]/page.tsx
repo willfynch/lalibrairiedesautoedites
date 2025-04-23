@@ -33,7 +33,7 @@ const OneBookPage = async ({ params }: { params: { title: string } }) => {
     <Fragment>
       <div className="hero bg-base-200 min-h-screen py-4 px-[2rem]">
         <div className="hero-content flex-col lg:flex-row ">
-          <img src={book?.cover} className="max-w-sm rounded-lg shadow-2xl" />
+          <img alt={"Couverture de " + book.title} src={book?.cover} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold">{book?.title}</h1>
             <h2 className="text-2xl font-bold">{book?.author_name}</h2>

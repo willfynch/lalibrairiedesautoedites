@@ -23,9 +23,9 @@ export async function getAllBooks() : Promise<BookModel[]> {
 }
 
 export function getOneBook(title:string): BookModel {
-  console.log(slugify(title))
-  console.log(title)
-  const slugs = allBooks.map(book=>slugify(book.title));
+  // console.log(slugify(title))
+  // console.log(title)
+  // const slugs = allBooks.map(book=>slugify(book.title));
   // console.log(slugs)
   return allBooks.findLast(book=>slugify(book.title) === title) as BookModel;
 }
