@@ -16,11 +16,11 @@ export const BookReviewCard = (props: BookReviewCardProps) => {
           <h3 className="font-bold ">{props.title}</h3>
           {props.mark && (
             <div className="flex text-warning ">
-              {new Array(props.mark).fill(0).map(() => {
-                return <span style={{ textShadow: "#FC0 1px 0 5px" }}>★</span>;
+              {new Array(props.mark).fill(0).map((index) => {
+                return <span key={'star-' + index } style={{ textShadow: "#FC0 1px 0 5px" }}>★</span>;
               })}
-              {new Array(5 - props.mark).fill(0).map(() => {
-                return <span className="text-primary/50">★</span>;
+              {new Array(5 - props.mark).fill(0).map((index) => {
+                return <span key={'star-' + index } className="text-primary/50">★</span>;
               })}
             </div>
           )}

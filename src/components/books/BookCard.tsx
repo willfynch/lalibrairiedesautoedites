@@ -1,25 +1,22 @@
 "use client";
 import { BookModel } from "@/types/models";
-import { sendGAEvent } from "@next/third-parties/google";
+// import { sendGAEvent } from "@next/third-parties/google";
 import { Fragment } from "react";
-import { TbExternalLink } from "react-icons/tb";
-import { FaCartPlus } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
 import Link from "next/link";
 import { slugify } from "@/utils/slugify";
 
 function BookCard(props: BookModel) {
-  function showModal() {
-    if (document)
-      //@ts-expect-error because there is a virtual dom
-      document.getElementById("synopsis_modal_" + props.id)!.showModal();
-  }
+  // function showModal() {
+  //   if (document)
+  //     //@ts-expect-error because there is a virtual dom
+  //     document.getElementById("synopsis_modal_" + props.id)!.showModal();
+  // }
 
-  function handleClickOnBuyBook(event: React.MouseEvent, link: string) {
-    event.preventDefault();
-    sendGAEvent("event", "buttonClicked", { value: props.title });
-    window.open(link, "_blank");
-  }
+  // function handleClickOnBuyBook(event: React.MouseEvent, link: string) {
+  //   event.preventDefault();
+  //   sendGAEvent("event", "buttonClicked", { value: props.title });
+  //   window.open(link, "_blank");
+  // }
 
   return (
     <Fragment>

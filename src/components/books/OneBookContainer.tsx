@@ -79,7 +79,7 @@ export const OneBookContainer = ({ book }: OneBookContainerProps) => {
           >
             <span className="text-center">
               Vous avez écrit un avis sur ce livre ? <br />
-              Contactez-moi ⬇️ pour qu'il figure sur cette page.
+              Contactez-moi ⬇️ pour qu&apos;il figure sur cette page.
             </span>
 
             <div className="flex justify-between items-center gap-2">
