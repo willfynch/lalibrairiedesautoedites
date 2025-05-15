@@ -13,6 +13,7 @@ import insta9 from "../../public/images/instafeed/insta9.webp";
 export enum URLS_CONSTANTS {
   BOOK_SUBMISSION_FORM = "https://tally.so/r/w2vY6j",
   INSTA_URL = "https://www.instagram.com/librairiedesautoedites/",
+  INSTA_MY_URL = "https://www.instagram.com/du_cafe_et_des_rimes/",
   THREADS_URL = "https://www.threads.net/@du_cafe_et_des_rimes",
   SUBSTACK_URL = "https://substack.com/@ducafeetdesrimes",
   WEBSITE_URL = "https://ducafeetdesrimes.com",

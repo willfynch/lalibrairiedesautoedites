@@ -23,17 +23,20 @@ function BookCard(props: BookModel) {
 
   return (
     <Fragment>
-      <div className="card bg-white shadow-xl ">
+      
+      <div className="card bg-white shadow-xl hover:shadow-sm hover:bg-info/50 duration-300 group">
+                  <Link href={`/livres/${slugify(props.title)}`}>
+
         <figure className="w-full ">
           <img
-            className="object-contain h-60"
+            className="object-contain h-80"
             src={props.cover}
             alt={"Couverture de " + props.title}
           />
         </figure>
         <div className="card-body">
           <Link href={`/livres/${slugify(props.title)}`}>
-            <h2 className="card-title">{props.title}</h2>
+            <h2  className="card-title group-hover:drop-shadow-[0_1.2px_2px_rgba(250,214,137,1)] duration-300">{props.title}</h2>
           </Link>
           <h3>{props.author_name}</h3>
           <div className="card-actions justify-start wrap">
@@ -44,7 +47,7 @@ function BookCard(props: BookModel) {
             ))}
           </div>
           {/* <p>{props.catch_phrase}</p> */}
-
+{/* 
           <div className=" card-actions justify-end">
             <a
               role="link"
@@ -79,8 +82,9 @@ function BookCard(props: BookModel) {
                 <FaCartPlus />
               </button>
             </a>
-          </div>
+          </div> */}
         </div>
+        </Link>
       </div>
 
       <dialog

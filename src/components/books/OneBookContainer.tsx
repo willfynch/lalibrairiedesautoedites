@@ -1,11 +1,12 @@
 "use client";
-
+import { MdOutlineEmail } from "react-icons/md";
 import { BookModel } from "@/types";
-import { FaCartPlus } from "react-icons/fa";
+import { FaCartPlus, FaInstagram } from "react-icons/fa";
 import { BookReviewCard } from "./BookReviewCard";
 import { TbExternalLink } from "react-icons/tb";
 import { UpWaves } from "../shared";
 import { MouseEvent } from "react";
+import { URLS_CONSTANTS } from "@/utils/constants";
 interface OneBookContainerProps {
   book: BookModel;
 }
@@ -19,7 +20,7 @@ export const OneBookContainer = ({ book }: OneBookContainerProps) => {
   return (
     <main>
       <section className="hero bg-base-200 min-h-screen py-4  relative">
-        <div className="hero-content flex-col lg:flex-row px-[2rem] mb-24 gap-12">
+        <div className="hero-content flex-col lg:flex-row px-[2rem] mb-28 gap-12">
           <img
             alt={"Couverture de " + book.title}
             src={book?.cover}
@@ -50,7 +51,7 @@ export const OneBookContainer = ({ book }: OneBookContainerProps) => {
               </a>
 
               <a
-                className=" font-semibold btn md:btn-sm border-1 border-warning bg-warning/30 w-full text-center md:w-fit text-primary hover:border-warning hover:bg-warning/30 hover:shadow-[0px_0px_15px_-1px_rgba(251,_191,_36,_1)]"
+                className="group font-semibold btn md:btn-sm border-1 border-warning bg-warning/30 w-full text-center md:w-fit text-primary hover:border-warning hover:bg-warning/30 hover:shadow-[0px_0px_15px_-1px_rgba(251,_191,_36,_1)]"
                 role="link"
                 href="#reviews"
                 onClick={(e) => scrollHandle(e, "reviews")}
@@ -66,28 +67,44 @@ export const OneBookContainer = ({ book }: OneBookContainerProps) => {
         </div>
       </section>
 
-      <section className="w-screen flex flex-col items-center justify-center px-2 mt-4 md:mt-10">
-        <div className="prose">
+      <section className=" flex flex-col items-center justify-center px-2 mt-4 md:mt-10">
+        <div className="md:w-1/2">
           <h2 className="text-center subtitle scroll-mt-[100px] " id="reviews">
             💡Avis des lecteurs et lectrices
           </h2>
 
           <div
             role="alert"
-            className="alert alert-info text-base-100 font-semibold my-6"
+            className="rounded-[1rem] p-2 bg-info text-base my-6 p-4 flex flex-col items-center gap-2"
           >
-            ✨
-            <span>
-              Vous avez écrit un avis sur ce livre ? Vous pouvez me le proposer
-              en m&apos;envoyant un mail {""}
-              <a
-                className="text-base-100 font-bold hover:text-warning"
-                href="mailto:ducafeetdesrimes@proton.me"
-              >
-                ICI 📧
-              </a>{" "}
-              et je l&apos;ajouterai à cette page !
+            <span className="text-center">
+              Vous avez écrit un avis sur ce livre ? <br />
+              Contactez-moi ⬇️ pour qu'il figure sur cette page.
             </span>
+
+            <div className="flex justify-between items-center gap-2">
+              <MdOutlineEmail />
+              <span>
+                <a
+                  className="text-base font-bold no-underline"
+                  href="mailto:ducafeetdesrimes@proton.me"
+                >
+                  ducafeetdesrimes@proton.me
+                </a>
+              </span>
+            </div>
+            <div className="flex justify-between items-center gap-2">
+              <FaInstagram />
+              <span>
+                <a
+                  className="text-base font-bold no-underline"
+                  target="_blank"
+                  href={URLS_CONSTANTS.INSTA_MY_URL}
+                >
+                  @du_cafe_et_des_rimes
+                </a>
+              </span>
+            </div>
           </div>
 
           <div className="flex flex-col mb-10">
@@ -101,6 +118,7 @@ export const OneBookContainer = ({ book }: OneBookContainerProps) => {
                     link={review.link}
                     reviewer={review.reviewer}
                     image={review.image}
+                    mark={review.mark}
                   ></BookReviewCard>
                 );
               })}
@@ -109,6 +127,7 @@ export const OneBookContainer = ({ book }: OneBookContainerProps) => {
               link={""}
               reviewer={"Moi-même"}
               image={"https://picsum.photos/200/300"}
+              mark={3}
             ></BookReviewCard>
           </div>
         </div>

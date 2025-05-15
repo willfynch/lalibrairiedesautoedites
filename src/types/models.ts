@@ -23,6 +23,7 @@ interface BookReviewModel {
   title: string;
   link: string;
   reviewer: string;
+  mark?: number;
 }
 
   export interface BookCategoryTabItemModel {
