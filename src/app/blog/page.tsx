@@ -8,6 +8,7 @@ import { METADATA_INFOS } from "@/utils/constants";
 import style from "./page.module.scss";
 import { UpWaves } from "@/components/shared";
 import BlogPanel from "@/components/blog/BlogPanel";
+export const dynamic = "force-static";
 
 const DESCRIPTION = `Ici, vous trouverez des articles sur l'écriture, l'autoédition, les livres autoédités, des conseils en tous genres... ! C'est aussi un espace participatif. Vous aussi, vous pouvez avoir votre article dans cette section.`;
 export const metadata: Metadata = calculateMetadata(

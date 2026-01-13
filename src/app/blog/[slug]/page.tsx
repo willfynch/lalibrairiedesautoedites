@@ -3,6 +3,7 @@ import { BlogArticleModel } from "@/types/models";
 import BlogArticleContainer from "@/components/blog/BlogArticleContainer";
 import { calculateMetadata } from "@/utils/calculateMetadata";
 import { Metadata } from "next";
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return getAllBlogs().map((blog) => ({ slug: blog.slug }));

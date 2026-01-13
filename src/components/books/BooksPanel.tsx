@@ -23,6 +23,8 @@ function BooksPanel(props: { books: BookModel[] }) {
     type?: BookCategory,
     searchedValue?: string
   ): void => {
+    console.log("handle filter books")
+    console.log(type, searchedValue)
     setSearchedValue(searchedValue || "");
     filterBooks(type || bookCategory, searchedValue || "");
   };

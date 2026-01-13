@@ -1,36 +1,40 @@
 "use client";
 import { BookModel } from "@/types/models";
-import { sendGAEvent } from "@next/third-parties/google";
+// import { sendGAEvent } from "@next/third-parties/google";
 import { Fragment } from "react";
-import { TbExternalLink } from "react-icons/tb";
-import { FaCartPlus } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
+import Link from "next/link";
+import { slugify } from "@/utils/slugify";
 
 function BookCard(props: BookModel) {
-  function showModal() {
-    if (document)
-      //@ts-expect-error because there is a virtual dom 
-      document.getElementById("synopsis_modal_" + props.id)!.showModal();
-  }
+  // function showModal() {
+  //   if (document)
+  //     //@ts-expect-error because there is a virtual dom
+  //     document.getElementById("synopsis_modal_" + props.id)!.showModal();
+  // }
 
-  function handleClickOnBuyBook(event: React.MouseEvent, link: string) {
-    event.preventDefault();
-    sendGAEvent("event", "buttonClicked", { value: props.title });
-    window.open(link, "_blank");
-  }
+  // function handleClickOnBuyBook(event: React.MouseEvent, link: string) {
+  //   event.preventDefault();
+  //   sendGAEvent("event", "buttonClicked", { value: props.title });
+  //   window.open(link, "_blank");
+  // }
 
   return (
     <Fragment>
-      <div className="card bg-white shadow-xl ">
+      
+      <div className="card bg-white shadow-xl hover:shadow-sm hover:bg-info/50 duration-300 group">
+                  <Link href={`/livres/${slugify(props.title)}`}>
+
         <figure className="w-full ">
           <img
-            className="object-contain h-60"
+            className="object-contain h-80"
             src={props.cover}
             alt={"Couverture de " + props.title}
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{props.title}</h2>
+          <Link href={`/livres/${slugify(props.title)}`}>
+            <h2  className="card-title group-hover:drop-shadow-[0_1.2px_2px_rgba(250,214,137,1)] duration-300">{props.title}</h2>
+          </Link>
           <h3>{props.author_name}</h3>
           <div className="card-actions justify-start wrap">
             {props.tags.slice(0, 3).map((tag: string, index: number) => (
@@ -40,7 +44,7 @@ function BookCard(props: BookModel) {
             ))}
           </div>
           {/* <p>{props.catch_phrase}</p> */}
-
+{/* 
           <div className=" card-actions justify-end">
             <a
               role="link"
@@ -75,8 +79,9 @@ function BookCard(props: BookModel) {
                 <FaCartPlus />
               </button>
             </a>
-          </div>
+          </div> */}
         </div>
+        </Link>
       </div>
 
       <dialog
@@ -92,7 +97,9 @@ function BookCard(props: BookModel) {
           <div className="modal-action">
             <form method="dialog" className="flex flex-row gap-2">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-sm btn-primary text-neutral">Fermer</button>
+              <button className="btn btn-sm btn-primary text-neutral">
+                Fermer
+              </button>
             </form>
           </div>
         </div>
